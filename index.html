@@ -5,53 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal webpage of [Your Name], PhD student and researcher in Artificial Intelligence.">
     <title>[Your Name] - AI Researcher</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Google Font */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #1e1e1e;
             color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
 
+        /* Complex Header Layout */
         header {
-            background: linear-gradient(135deg, #660000, #CC9900);
+            background: linear-gradient(to right, rgba(102, 0, 0, 0.9), rgba(204, 153, 0, 0.9)), url('https://example.com/header-bg.jpg') no-repeat center center/cover;
             color: white;
-            padding: 2rem;
-            text-align: left;
-            position: relative;
+            padding: 4rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
         }
 
         header img {
             border-radius: 50%;
-            border: 4px solid white;
-            width: 150px;
-            height: 150px;
+            border: 6px solid #f4f4f4;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            margin-left: 1rem;
+            position: absolute;
+            right: 20px;
+            bottom: -50px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin: 0;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 300;
         }
 
+        /* Navigation Bar */
         nav {
-            background-color: #CC9900;
-            padding: 1rem;
+            background-color: rgba(204, 153, 0, 0.9);
             text-align: center;
+            padding: 1rem;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -59,41 +77,110 @@
             text-decoration: none;
             margin: 0 20px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
         }
 
+        nav a:hover {
+            color: white;
+        }
+
+        /* Sections */
         section {
-            margin: 20px auto;
-            padding: 2rem;
-            max-width: 1000px;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
             background: #333;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
         }
 
         h2 {
             color: #CC9900;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         ul {
-            list-style-type: square;
-            padding-left: 1.5rem;
+            list-style-type: none;
+            padding-left: 0;
         }
 
+        ul li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            color: #f4f4f4;
+            position: relative;
+        }
+
+        ul li:before {
+            content: "•";
+            color: #CC9900;
+            font-size: 1.5rem;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Contact Section */
+        section#contact {
+            background-color: #1e1e1e;
+        }
+
+        section#contact p a {
+            color: #CC9900;
+            text-decoration: underline;
+        }
+
+        /* Footer */
         footer {
             background-color: #660000;
             color: white;
             text-align: center;
             padding: 1rem;
-            margin-top: 20px;
             border-radius: 0 0 10px 10px;
+            margin-top: -40px;
         }
 
         footer a {
             color: #CC9900;
             text-decoration: none;
+            transition: color 0.3s ease-in-out;
         }
 
+        footer a:hover {
+            color: white;
+        }
+
+        /* Fancy Section Divider */
+        .wave {
+            position: relative;
+            background: #333;
+            height: 150px;
+            margin-top: -150px;
+            z-index: 0;
+        }
+
+        .wave::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('https://example.com/wave-divider.svg') no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -115,7 +202,7 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I am [Your Name], a PhD student at [University Name] specializing in Artificial Intelligence. My research focuses on [brief description of your research focus, such as natural language processing, deep learning, computer vision, etc.]. I am passionate about pushing the boundaries of machine learning and its applications in solving real-world problems.</p>
+        <p>I am [Your Name], a PhD student specializing in Artificial Intelligence. My research focuses on advancing machine learning techniques to solve real-world problems.</p>
     </section>
 
     <section id="research">
@@ -143,9 +230,12 @@
         <p>You can reach me via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on <a href="[your-linkedin-url]" target="_blank">LinkedIn</a>.</p>
     </section>
 
+    <div class="wave"></div>
+
     <footer>
         <p>&copy; [Year] [Your Name]. All rights reserved. | <a href="https://github.com/[your-github-username]" target="_blank">GitHub</a></p>
     </footer>
 
 </body>
 </html>
+
