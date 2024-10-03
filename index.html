@@ -8,6 +8,9 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         * {
@@ -95,7 +98,7 @@
 
         /* Sections */
         section {
-            padding: 4rem 4rem; /* Increased side margins */
+            padding: 4rem 6rem; /* Increased side margins */
             margin-bottom: 4rem;
             background: #333;
             border-radius: 10px;
@@ -148,6 +151,22 @@
         /* News Section */
         section#news {
             background-color: #444;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: #CC9900;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-links a:hover {
+            color: white;
         }
 
         /* Footer */
@@ -205,8 +224,8 @@
     <nav>
         <a href="#about">About Me</a>
         <a href="#research">Research</a>
+        <a href="#news">News</a> <!-- Moved news link -->
         <a href="#publications">Publications</a>
-        <a href="#news">News</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -222,6 +241,12 @@
         <p>Reinforcement Learning</p>
         <p>Computer Vision</p>
         <p>Ethics in AI</p>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <p>[Latest news or updates about your research or projects will go here.]</p>
+        <p>[Another news item or announcement.]</p>
     </section>
 
     <section id="publications">
@@ -240,13 +265,20 @@
         </div>
     </section>
 
-    <section id="news">
-        <h2>News</h2>
-        <p>[Latest news or updates about your research or projects will go here.]</p>
-        <p>[Another news item or announcement.]</p>
-    </section>
-
     <section id="contact">
         <h2>Contact</h2>
         <p>You can reach me via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on <a href="[your-linkedin-url]" target="_blank">LinkedIn</a>.</p>
+
+        <div class="social-links">
+            <a href="[your-cv-url]" target="_blank"><i class="fas fa-file-alt"></i></a>
+            <a href="[your-linkedin-url]" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="[your-google-scholar-url]" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+        </div>
     </section>
+
+    <footer>
+        <p>&copy; [Year] [Your Name]. All rights reserved.</p>
+    </footer>
+</body>
+</html>
