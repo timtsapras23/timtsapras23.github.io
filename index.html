@@ -29,7 +29,7 @@
             color: white;
             padding: 4rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: flex-start;
             position: relative;
             overflow: hidden;
@@ -60,11 +60,13 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            text-align: center; /* Centered text */
         }
 
         header p {
             font-size: 1.5rem;
             font-weight: 300;
+            text-align: center; /* Centered text */
         }
 
         /* Navigation Bar */
@@ -93,7 +95,7 @@
 
         /* Sections */
         section {
-            padding: 4rem 2rem;
+            padding: 4rem 4rem; /* Increased side margins */
             margin-bottom: 4rem;
             background: #333;
             border-radius: 10px;
@@ -101,6 +103,7 @@
             position: relative;
             z-index: 10;
             transition: transform 0.3s ease-in-out;
+            text-align: center; /* Center text for sections */
         }
 
         section:hover {
@@ -118,24 +121,18 @@
             margin-bottom: 1.5rem;
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+        /* Publications */
+        .publication {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center content */
+            margin: 1rem 0;
         }
 
-        ul li {
-            padding: 0.5rem 0;
-            font-size: 1.1rem;
-            color: #f4f4f4;
-            position: relative;
-        }
-
-        ul li:before {
-            content: "•";
-            color: #CC9900;
-            font-size: 1.5rem;
-            position: absolute;
-            left: -20px;
+        .publication img {
+            width: 80px; /* Publication photo size */
+            height: auto;
+            margin-right: 10px;
         }
 
         /* Contact Section */
@@ -146,6 +143,11 @@
         section#contact p a {
             color: #CC9900;
             text-decoration: underline;
+        }
+
+        /* News Section */
+        section#news {
+            background-color: #444;
         }
 
         /* Footer */
@@ -204,6 +206,7 @@
         <a href="#about">About Me</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#news">News</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -214,34 +217,36 @@
 
     <section id="research">
         <h2>Research Interests</h2>
-        <ul>
-            <li>Deep Learning</li>
-            <li>Natural Language Processing (NLP)</li>
-            <li>Reinforcement Learning</li>
-            <li>Computer Vision</li>
-            <li>Ethics in AI</li>
-        </ul>
+        <p>Deep Learning</p>
+        <p>Natural Language Processing (NLP)</p>
+        <p>Reinforcement Learning</p>
+        <p>Computer Vision</p>
+        <p>Ethics in AI</p>
     </section>
 
     <section id="publications">
         <h2>Publications</h2>
-        <ul>
-            <li><strong>[Title of Paper 1]</strong> - Published in [Journal/Conference], [Year]. <a href="[link-to-paper-1]" target="_blank">Read more</a></li>
-            <li><strong>[Title of Paper 2]</strong> - Published in [Journal/Conference], [Year]. <a href="[link-to-paper-2]" target="_blank">Read more</a></li>
-            <li><strong>[Title of Paper 3]</strong> - Published in [Journal/Conference], [Year]. <a href="[link-to-paper-3]" target="_blank">Read more</a></li>
-        </ul>
+        <div class="publication">
+            <img src="publication1-photo.jpg" alt="Publication 1 Photo">
+            <p><strong>[Title of Paper 1]</strong> - Published in [Journal/Conference], [Year]. <a href="[link-to-paper-1]" target="_blank">Read more</a></p>
+        </div>
+        <div class="publication">
+            <img src="publication2-photo.jpg" alt="Publication 2 Photo">
+            <p><strong>[Title of Paper 2]</strong> - Published in [Journal/Conference], [Year]. <a href="[link-to-paper-2]" target="_blank">Read more</a></p>
+        </div>
+        <div class="publication">
+            <img src="publication3-photo.jpg" alt="Publication 3 Photo">
+            <p><strong>[Title of Paper 3]</strong> - Published in [Journal/Conference], [Year]. <a href="[link-to-paper-3]" target="_blank">Read more</a></p>
+        </div>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <p>[Latest news or updates about your research or projects will go here.]</p>
+        <p>[Another news item or announcement.]</p>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
         <p>You can reach me via email at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect with me on <a href="[your-linkedin-url]" target="_blank">LinkedIn</a>.</p>
     </section>
-
-    <div class="wave"></div>
-
-    <footer>
-        <p>&copy; [Year] [Your Name]. All rights reserved. | <a href="https://github.com/[your-github-username]" target="_blank">GitHub</a></p>
-    </footer>
-
-</body>
-</html>
