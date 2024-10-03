@@ -41,6 +41,7 @@
         }
 
         header img.profile {
+            display: block;
             border-radius: 50%;
             border: 6px solid #f4f4f4;
             width: 250px; /* Increased size */
@@ -182,6 +183,9 @@
             color: white;
         }
 
+        header img.mobile {
+            display: none; /* Hide image by default */
+        }
         /* Media Queries for Mobile Responsiveness */
         @media (max-width: 768px) {
             header {
@@ -189,10 +193,7 @@
             }
 
             header img.profile {
-                width: 100px; /* Smaller profile picture */
-                height: 100px;
-                right: 50%; /* Adjust positioning */
-                top: 200px;
+                display: none;
             }
 
             header h1 {
@@ -201,6 +202,18 @@
 
             header p {
                 font-size: 1rem; /* Smaller paragraph text */
+            }
+
+            header img.mobile {
+                display: block; /* Show image on mobile */
+                width: 200px; /* Adjusted profile picture size */
+                height: 200px;
+                margin: 10px auto; /* Center image and add some margin */
+                order: 1; /* Move the image below the icons */
+            }
+
+            .social-links {
+                order: 0; /* Ensure icons stay above the image */
             }
 
             nav a {
@@ -236,6 +249,7 @@
                 display: flex;
                 flex-direction: column; /* Stack image and text vertically */
                 align-items: center; /* Center content */
+
             }
 
             td img {
@@ -298,6 +312,7 @@
                 <a href="https://scholar.google.com/citations?user=xM5vqYoAAAAJ&hl=en&oi=sra" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             </div>
         </div>
+        <img src="profile-photo.jpg" alt="Mobile Photo" class="mobile">
         <img src="images/IMG-250e2439c4fa3963baee97dc2e225411-V copy.jpeg" alt="Your Photo" class="profile">
     </header>
 
