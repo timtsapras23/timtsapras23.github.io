@@ -182,6 +182,85 @@
             color: white;
         }
 
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem; /* Adjust padding for smaller screens */
+            }
+
+            header img.profile {
+                width: 200px; /* Smaller profile picture */
+                height: 200px;
+                right: 5%; /* Adjust positioning */
+            }
+
+            header h1 {
+                font-size: 2.5rem; /* Smaller heading */
+            }
+
+            header p {
+                font-size: 1rem; /* Smaller paragraph text */
+            }
+
+            nav a {
+                margin: 0 10px; /* Adjust margins for nav links */
+                font-size: 1rem; /* Smaller font size */
+            }
+
+            section {
+                padding: 2rem 2rem; /* Decreased padding for sections */
+            }
+
+            h2 {
+                font-size: 2rem; /* Smaller section headings */
+            }
+
+            p {
+                font-size: 0.9rem; /* Smaller paragraph font size */
+            }
+
+            .publication img {
+                width: 100px; /* Smaller publication image */
+            }
+
+            /* Publications Section */
+            table {
+                display: block; /* Stack publications vertically */
+                overflow-x: auto; /* Allow horizontal scrolling */
+                margin-bottom: 1rem; /* Add margin for spacing */
+            }
+
+            td {
+                display: flex;
+                flex-direction: column; /* Stack image and text vertically */
+                align-items: center; /* Center content */
+            }
+
+            td img {
+                margin-bottom: 0.5rem; /* Space between image and text */
+            }
+        }
+
+        /* Responsive design for very small screens */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem; /* Further reduce heading size */
+            }
+
+            nav a {
+                font-size: 0.9rem; /* Further reduce nav link size */
+            }
+
+            h2 {
+                font-size: 1.8rem; /* Further reduce section headings */
+            }
+
+            p {
+                font-size: 0.8rem; /* Further reduce paragraph font size */
+            }
+        }
+
+
         /* Fancy Section Divider */
         .wave {
             position: relative;
@@ -278,32 +357,6 @@
             </tr>
         </table>
     </section>
-
-
-
-    <tr>
-        <td style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images/CLIP-3Modal_NeurIPS.jpg" alt="clean-usnob" width="180" height="140">
-        </td>
-        <td style="padding:20px;width:75%;vertical-align:middle">
-           <a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">
-            <span class="papertitle">Enhancing CLIP with a Third Modality</span>
-          </a>
-          <br>
-          <strong>Efthymios Tsaprazlis</strong>,
-          <a href="https://georgiossmyrnis.github.io/">Georgios Smyrnis</a>,
-          <a href="https://users.ece.utexas.edu/~dimakis/">Alexandros G. Dimakis</a>,
-          <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>, <br>
-          <br>
-          <em>NeurIPS Workshop: Self-Supervised Learning - Theory and Practice</em>, 2023
-          <br>
-
-
-
-
-
-
-
 
     <section id="contact">
         <h2>Contact</h2>
