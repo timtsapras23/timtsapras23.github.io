@@ -30,14 +30,14 @@
             padding: 4rem 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
             overflow: hidden;
             height: 500px;
             clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
         }
 
-        header img {
+        header img.profile {
             border-radius: 50%;
             border: 6px solid #f4f4f4;
             width: 180px;
@@ -45,8 +45,14 @@
             object-fit: cover;
             position: absolute;
             right: 20px;
-            bottom: -50px;
+            top: 30px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header img.usc-logo {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
         }
 
         header h1 {
@@ -187,10 +193,11 @@
 
     <header>
         <div>
+            <img src="usc-logo.png" alt="USC Logo" class="usc-logo">
             <h1>[Your Name]</h1>
             <p>PhD Student | AI Researcher | [University Name]</p>
         </div>
-        <img src="your-photo.jpg" alt="Your Photo">
+        <img src="your-photo.jpg" alt="Your Photo" class="profile">
     </header>
 
     <nav>
@@ -238,4 +245,3 @@
 
 </body>
 </html>
-
