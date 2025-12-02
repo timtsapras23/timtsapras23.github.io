@@ -43,11 +43,11 @@
             display: block;
             border-radius: 50%;
             border: 6px solid #f4f4f4;
-            width: 250px; /* Increased size */
+            width: 250px;
             height: 250px;
             object-fit: cover;
             position: absolute;
-            right: 5%; /* Moved towards the center */
+            right: 5%;
             top: 25px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
         }
@@ -63,16 +63,15 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-            text-align: center; /* Centered text */
+            text-align: center;
         }
 
         header p {
             font-size: 1.2rem;
             font-weight: 300;
-            text-align: center; /* Centered text */
+            text-align: center;
         }
 
-        /* Icons under header */
         .social-links {
             text-align: center;
             margin: 1rem 0;
@@ -106,16 +105,25 @@
             margin: 0 20px;
             font-weight: 600;
             font-size: 1.2rem;
-            transition: color 0.3s ease-in-out;
+            transition: color 0.3s ease-in-out, border-bottom 0.2s ease-in-out;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        /* Active tab styling */
+        nav a.active {
+            color: white;
+            border-bottom-color: white;
         }
 
         nav a:hover {
             color: white;
         }
 
-        /* Sections */
+        /* Sections (tab content) */
         section {
-            padding: 4rem 6rem; /* Increased side margins */
+            padding: 4rem 6rem;
             margin-left: 6rem;
             margin-right: 6rem;
             margin-bottom: 2rem;
@@ -125,7 +133,7 @@
             position: relative;
             z-index: 10;
             transition: transform 0.3s ease-in-out;
-            text-align: center; /* Center text for sections */
+            text-align: center;
         }
 
         section:hover {
@@ -143,26 +151,26 @@
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
+
         section p a {
             color: #CC9900;
             text-decoration: underline;
         }
+
         /* Publications */
         .publication {
             display: flex;
             align-items: center;
-            justify-content: center; /* Center content */
+            justify-content: center;
             margin: 1rem 0;
         }
 
         .publication img {
-            width: 180px; /* Publication photo size */
+            width: 180px;
             height: 120px;
             margin-right: 30px;
             margin-bottom: 15px;
         }
-        
-        
 
         /* Footer */
         footer {
@@ -185,12 +193,22 @@
         }
 
         header img.mobile {
-            display: none; /* Hide image by default */
+            display: none;
         }
+
+        /* === TAB VISIBILITY CONTROL === */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         /* Media Queries for Mobile Responsiveness */
         @media (max-width: 768px) {
             header {
-                padding: 2rem 1rem; /* Adjust padding for smaller screens */
+                padding: 2rem 1rem;
             }
 
             header img.profile {
@@ -198,19 +216,19 @@
             }
 
             header h1 {
-                font-size: 2.5rem; /* Smaller heading */
+                font-size: 2.5rem;
             }
 
             header p {
-                font-size: 1rem; /* Smaller paragraph text */
+                font-size: 1rem;
             }
 
             header img.mobile {
-                display: block; /* Show image on mobile */
-                width: 180px; /* Adjusted profile picture size */
+                display: block;
+                width: 180px;
                 height: 180px;
-                margin: 10px auto; /* Center image and add some margin */
-                order: 1; /* Move the image below the icons */
+                margin: 10px auto;
+                order: 1;
                 border-radius: 50%;
                 border: 6px solid #f4f4f4;
                 object-fit: cover;
@@ -218,68 +236,65 @@
             }
 
             .social-links {
-                order: 0; /* Ensure icons stay above the image */
+                order: 0;
             }
 
             nav a {
-                margin: 0 10px; /* Adjust margins for nav links */
-                font-size: 1rem; /* Smaller font size */
+                margin: 0 10px;
+                font-size: 1rem;
             }
 
             section {
-                padding: 2rem 2rem; /* Decreased padding for sections */
+                padding: 2rem 2rem;
                 margin-left: 0rem;
                 margin-right: 0rem;
             }
 
             h2 {
-                font-size: 2rem; /* Smaller section headings */
+                font-size: 2rem;
             }
 
             p {
-                font-size: 0.9rem; /* Smaller paragraph font size */
+                font-size: 0.9rem;
             }
 
             .publication img {
-                width: 100px; /* Smaller publication image */
+                width: 100px;
                 height: 65px;
             }
 
-            /* Publications Section */
             table {
-                display: block; /* Stack publications vertically */
-                overflow-x: auto; /* Allow horizontal scrolling */
-                margin-bottom: 1rem; /* Add margin for spacing */
+                display: block;
+                overflow-x: auto;
+                margin-bottom: 1rem;
             }
 
             td {
                 display: flex;
-                flex-direction: column; /* Stack image and text vertically */
-                align-items: center; /* Center content */
-
+                flex-direction: column;
+                align-items: center;
             }
 
             td img {
-                margin-bottom: 0.5rem; /* Space between image and text */
+                margin-bottom: 0.5rem;
             }
         }
 
-        /* Responsive design for very small screens */
         @media (max-width: 480px) {
             header h1 {
-                font-size: 2rem; /* Further reduce heading size */
+                font-size: 2rem;
             }
 
             nav a {
-                font-size: 0.9rem; /* Further reduce nav link size */
+                font-size: 0.9rem;
             }
 
             h2 {
-                font-size: 1.8rem; /* Further reduce section headings */
+                font-size: 1.8rem;
             }
 
             p {
-                font-size: 0.8rem; /* Further reduce paragraph font size */
+                font-size: 0.8rem;
             }
         }
 
@@ -307,6 +322,11 @@
                 color: #f4f4f4;
             }
 
+            nav a.active {
+                border-bottom-color: #CC9900;
+                color: #CC9900;
+            }
+
             section {
                 background: #f4f4f4;
             }
@@ -319,20 +339,17 @@
                 background-color: #CC9900;
                 color: black;
             }
-             /* Make publication boxes lighter in light theme */
+
             .publication > div {
-                background: #c3bfbf !important; /* Light gray background for light theme */
-                color: #1f1f1f; /* Ensure text is dark */
+                background: #c3bfbf !important;
+                color: #1f1f1f;
             }
 
             .publication > div a {
-                color: #660000; /* Adjust links if needed */
+                color: #660000;
             }
         }
 
-
-
-        /* Fancy Section Divider */
         .wave {
             position: relative;
             background: #333;
@@ -352,14 +369,12 @@
             background: url('https://example.com/wave-divider.svg') no-repeat;
             background-size: cover;
         }
-    
     </style>
 </head>
 <body>
 
     <header>
         <div>
-            <!--<img src="usc-logo.png" alt="USC Logo" class="usc-logo">-->
             <h1>Efthymios (Themis) Tsaprazlis</h1>
             <p>PhD Student | SAIL | University of Southern California</p>
             <div class="social-links">
@@ -374,120 +389,124 @@
         <img src="images/IMG_7843.png" alt="Your Photo" class="profile">
     </header>
 
+    <!-- NAV NOW USES data-target INSTEAD OF href="#id" -->
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#research">Research</a>
-        <a href="#news">News</a> <!-- Moved news link -->
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+        <a class="tab-link" data-target="about">About Me</a>
+        <a class="tab-link" data-target="research">Research</a>
+        <a class="tab-link" data-target="news">News</a>
+        <a class="tab-link" data-target="publications">Publications</a>
+        <a class="tab-link" data-target="contact">Contact</a>
     </nav>
 
-    <section id="about">
+    <!-- Each section is a tab-content now -->
+    <section id="about" class="tab-content">
         <h2>About Me</h2>
-        <p>I'm a Computer Science PhD student at University of Southern California and a graaduate research assistant at <a href="https://sail.usc.edu/"> Signal Analysis and Interpretation Lab (SAIL)</a> , under the supervision of Professor <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>. Previously, I did my Bachelors in the ECE Departement at National Technical University of Athens where I worked with Professor <a href="http://cvsp.cs.ntua.gr/maragos/index.shtm">Petros Maragos</a>. Also, I was an external collaborator of the Machine Learning Lab at Univerity of Texas at Austin, where I worked with Professor <a href="https://users.ece.utexas.edu/~dimakis/">Alex Dimakis</a> .
-        </section>
-
-    <section id="research" style="text-align: left;">
-    <h2>Research Interests</h2>
-    <p>My research lies at the intersection of <strong>applied and theoretical machine learning</strong>, developing systems that learn efficiently, generalize across modalities, and remain trustworthy in real-world deployment.</p>
-    <ul>
-        <li><strong>Privacy-Preserving Machine Learning:</strong> Interested in unlearning, differential privacy, and risk auditing techniques while connecting them to broader optimization and system design challenges.</li>
-        <li><strong>Multimodal &amp; Representation Learning:</strong> Building models that jointly leverage vision, language, and speech to improve grounding, reasoning, and cross-domain transfer.</li>
-        <li><strong>Self-Supervised &amp; Contrastive Learning:</strong> Designing efficient objectives and training pipelines that enable robust, data-efficient representation learning at scale.</li>
-        <li><strong>Generative AI:</strong> Leveraging LLMs and diffusion models to enable context-aware reasoning and controllable multimodal generation.</li>
-    </ul>
+        <p>
+            I'm a Computer Science PhD student at University of Southern California and a graduate research assistant at 
+            <a href="https://sail.usc.edu/">Signal Analysis and Interpretation Lab (SAIL)</a>, under the supervision of Professor 
+            <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>. Previously, I did my Bachelors in the ECE Department at 
+            National Technical University of Athens where I worked with Professor 
+            <a href="http://cvsp.cs.ntua.gr/maragos/index.shtm">Petros Maragos</a>. Also, I was an external collaborator of the Machine Learning Lab at 
+            University of Texas at Austin, where I worked with Professor 
+            <a href="https://users.ece.utexas.edu/~dimakis/">Alex Dimakis</a>.
+        </p>
     </section>
 
-    <section id="news" style="text-align: left;">
+    <section id="research" class="tab-content" style="text-align: left;">
+        <h2>Research Interests</h2>
+        <p>My research lies at the intersection of <strong>applied and theoretical machine learning</strong>, developing systems that learn efficiently, generalize across modalities, and remain trustworthy in real-world deployment.</p>
+        <ul>
+            <li><strong>Privacy-Preserving Machine Learning:</strong> Interested in unlearning, differential privacy, and risk auditing techniques while connecting them to broader optimization and system design challenges.</li>
+            <li><strong>Multimodal &amp; Representation Learning:</strong> Building models that jointly leverage vision, language, and speech to improve grounding, reasoning, and cross-domain transfer.</li>
+            <li><strong>Self-Supervised &amp; Contrastive Learning:</strong> Designing efficient objectives and training pipelines that enable robust, data-efficient representation learning at scale.</li>
+            <li><strong>Generative AI:</strong> Leveraging LLMs and diffusion models to enable context-aware reasoning and controllable multimodal generation.</li>
+        </ul>
+    </section>
+
+    <section id="news" class="tab-content" style="text-align: left;">
         <h2>News</h2>
-         <p>
-            &#x2022; [Nov 2025] Received the Gerondelis Foundation Scholarship for my PhD studies at USC.
-        <p>
-            &#x2022; [Sep 2025] Received a gift award from the <a href="https://trustedai.usc.edu/">USC-Amazon Center on Secure and Trusted Machine Learning</a> for my research on explainable privacy understanding in multimodal AI.
+        <p>&#x2022; [Nov 2025] Received the Gerondelis Foundation Scholarship for my PhD studies at USC.</p>
+        <p>&#x2022; [Sep 2025] Received a gift award from the <a href="https://trustedai.usc.edu/">USC-Amazon Center on Secure and Trusted Machine Learning</a> for my research on explainable privacy understanding in multimodal AI.</p>
+        <p>&#x2022; [Jan 2025] We got a paper accepted in <b>ICRA 2025</b>.</p>
+        <p>&#x2022; [Aug 2024] I started my PhD at University of Southern California.</p>
+        <p>&#x2022; [Jan 2024] I started a new position as Research Assistant in  
+            <a href="https://www.athenarc.gr/en/rpi">Robotics Unit of the Athena Research and Innovation Center (Athena RC)</a> and 
+            <a href="http://cvsp.cs.ntua.gr/">CVSP Group</a>.
         </p>
-        <p>
-            &#x2022; [Jan 2025] We got a paper accepted in <b>ICRA 2025</b>.
-        </p>
-        <p>
-            &#x2022; [Aug 2024] I started my PhD at University of Southern California.
-        </p>
-        <p>
-            &#x2022; [Jan 2024] I started a new position as Research Assistant in  <a href="https://www.athenarc.gr/en/rpi"> Robotics Unit of the Athena Research and Innovation Center (Athena RC) </a> and <a href="http://cvsp.cs.ntua.gr/"> CVSP Group</a>.
-          </p>
-          <p>
-            &#x2022; [Oct 2023] Our paper "Enhancing CLIP with a Third Modality" got accepted in <b> NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice</b>.  
-          </p>
-          <p>
-            &#x2022; [Oct 2023] I joined Workable as a Machine Learning Engineer intern. 
-          </p>
+        <p>&#x2022; [Oct 2023] Our paper "Enhancing CLIP with a Third Modality" got accepted in <b>NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice</b>.</p>
+        <p>&#x2022; [Oct 2023] I joined Workable as a Machine Learning Engineer intern.</p>
     </section>
 
-    <section id="publications">
-     <h2>Publications</h2>
-     <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://arxiv.org/pdf/2509.18413">
-         <span class="papertitle">VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks </span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://sav-eng.github.io/">Thanathai Lertpetchpun</a>,
-         <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
-         <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>,
-         <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
-        </p>
-        <p><em>arXiv preprint arXiv:2509.18413</em>, 2025 <em>(under review)</em></p>
+    <section id="publications" class="tab-content">
+        <h2>Publications</h2>
+
+        <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
+            <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
+                <p><strong><a href="https://arxiv.org/pdf/2509.18413">
+                    <span class="papertitle">VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks</span></a></strong>
+                </p>
+                <p>
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://sav-eng.github.io/">Thanathai Lertpetchpun</a>,
+                    <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
+                    <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>,
+                    <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
+                </p>
+                <p><em>arXiv preprint arXiv:2509.18413</em>, 2025 <em>(under review)</em></p>
+            </div>
         </div>
-     </div>
-          <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://arxiv.org/abs/2509.23827">
-         <span class="papertitle">Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models</span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
-         <a href="https://anilkramakrishna.github.io/">Anil Ramakrishna</a>,
-         <a href="https://guptarah.github.io/">Rahul Gupta</a>,
-         <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
-        </p>
-        <p><em>arXiv preprint arXiv:2509.23827</em>, 2025</p>
+
+        <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
+            <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
+                <p><strong><a href="https://arxiv.org/abs/2509.23827">
+                    <span class="papertitle">Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models</span></a></strong>
+                </p>
+                <p>
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
+                    <a href="https://anilkramakrishna.github.io/">Anil Ramakrishna</a>,
+                    <a href="https://guptarah.github.io/">Rahul Gupta</a>,
+                    <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
+                </p>
+                <p><em>arXiv preprint arXiv:2509.23827</em>, 2025</p>
+            </div>
         </div>
+
+        <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
+            <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
+                <p><strong><a href="https://robotics.ntua.gr/wp-content/uploads/sites/2/2025_Filntisis_Open-endedRoboticExplorationUsingVision-InspiredSimilarity-Foundation-Models_ICRA.pdf">
+                    <span class="papertitle">Towards Open-ended Robotic Exploration using Vision-Inspired Similarity and Foundation Models</span></a></strong>
+                </p>
+                <p>
+                    Panagiotis P. Filntisis,
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    Paraskevas Oikonomou,
+                    Francesco Mattioli,
+                    Vieri Giuliano Santucci,
+                    George Retsinas,
+                    <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
+                </p>
+                <p><em>International Conference on Robotics and Automation (ICRA)</em>, 2025</p>
+            </div>
         </div>
-     <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://robotics.ntua.gr/wp-content/uploads/sites/2/2025_Filntisis_Open-endedRoboticExplorationUsingVision-InspiredSimilarity-Foundation-Models_ICRA.pdf">
-         <span class="papertitle">Towards Open-ended Robotic Exploration using Vision-Inspired Similarity and Foundation Models</span></a></strong>
-        </p>
-        <p>
-         Panagiotis P. Filntisis,
-         <strong>Efthymios Tsaprazlis</strong>,
-         Paraskevas Oikonomou,
-         Francesco Mattioli,
-         Vieri Giuliano Santucci,
-         George Retsinas,
-         <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
-        </p>
-        <p><em>International Conference on Robotics and Automation (ICRA)</em>, 2025</p>
+
+        <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
+            <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
+                <p><strong><a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">
+                    <span class="papertitle">Enhancing CLIP with a Third Modality</span></a></strong>
+                </p>
+                <p>
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://georgiossmyrnis.github.io/">Georgios Smyrnis</a>,
+                    <a href="https://users.ece.utexas.edu/~dimakis/">Alexandros G. Dimakis</a>,
+                    <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
+                </p>
+                <p><em>NeurIPS Workshop: Self-Supervised Learning - Theory and Practice</em>, 2023</p>
+            </div>
         </div>
-     </div>
-     <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">
-         <span class="papertitle">Enhancing CLIP with a Third Modality</span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://georgiossmyrnis.github.io/">Georgios Smyrnis</a>,
-         <a href="https://users.ece.utexas.edu/~dimakis/">Alexandros G. Dimakis</a>,
-         <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
-        </p>
-        <p><em>NeurIPS Workshop: Self-Supervised Learning - Theory and Practice</em>, 2023</p>
-        </div>
-     </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="tab-content">
         <h2>Contact</h2>
         <p>You can reach me via email at <a href="mailto:tsaprazl@usc.edu">tsaprazl@usc.edu</a> or connect with me on <a href="https://www.linkedin.com/in/efthymios-tsaprazlis/" target="_blank">LinkedIn</a>.</p>
     </section>
@@ -495,10 +514,37 @@
     <footer>
         <p>&copy; 2025 Efthymios Tsaprazlis. All rights reserved.</p>
     </footer>
+
+    <!-- Simple tab logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-content');
+            const links = document.querySelectorAll('nav .tab-link');
+
+            function activateTab(id) {
+                tabs.forEach(tab => {
+                    tab.classList.toggle('active', tab.id === id);
+                });
+                links.forEach(link => {
+                    link.classList.toggle('active', link.dataset.target === id);
+                });
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.dataset.target;
+                    activateTab(targetId);
+                    // Update URL hash without scrolling
+                    history.replaceState(null, '', '#' + targetId);
+                });
+            });
+
+            // Initialize based on URL hash or default to "about"
+            const hash = window.location.hash ? window.location.hash.substring(1) : 'about';
+            const initialId = Array.from(tabs).some(t => t.id === hash) ? hash : 'about';
+            activateTab(initialId);
+        });
+    </script>
 </body>
 </html>
-
-<!--
-
-
--->
