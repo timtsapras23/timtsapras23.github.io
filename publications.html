@@ -6,6 +6,19 @@
     <meta name="description" content="Publications — Efthymios (Themis) Tsaprazlis">
     <title>Publications | Efthymios (Themis) Tsaprazlis</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+
+    <!-- Link previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Publications | Efthymios (Themis) Tsaprazlis">
+    <meta property="og:description" content="PhD student at USC (SAIL) working on trustworthy and privacy-preserving multimodal AI.">
+    <meta property="og:url" content="https://timtsapras23.github.io/publications.html">
+    <meta property="og:image" content="https://timtsapras23.github.io/images/IMG_1672%202.JPG">
+    <meta name="twitter:card" content="summary">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -291,14 +304,6 @@
             margin-bottom: 0.35rem;
         }
 
-        .publication .papertitle a {
-            color: var(--text);
-        }
-
-        .publication .papertitle a:hover {
-            color: var(--link);
-        }
-
         .publication .authors {
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -382,6 +387,60 @@
                 font-size: 1.4rem;
             }
         }
+
+        /* Paper / HF / BibTeX buttons */
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.7rem;
+        }
+
+        .pub-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.2rem 0.7rem;
+            font: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--link);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: border-color 0.2s ease-in-out, background 0.2s ease-in-out;
+        }
+
+        .pub-btn:hover {
+            border-color: var(--link);
+            text-decoration: none;
+        }
+
+        .bibtex {
+            position: relative;
+            margin-top: 0.7rem;
+        }
+
+        .bibtex pre {
+            margin: 0;
+            padding: 0.8rem 1rem;
+            padding-right: 5rem;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        .bibtex .pub-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--surface);
+        }
     </style>
 </head>
 <body>
@@ -416,7 +475,7 @@
             <h2>2026</h2>
 
             <div class="publication">
-                <p class="papertitle"><a href="https://arxiv.org/pdf/2603.21573">Rethinking Visual Privacy: A Compositional Privacy Risk Framework or Severity Assessment with VLMs</a></p>
+                <p class="papertitle">Rethinking Visual Privacy: A Compositional Privacy Risk Framework for Severity Assessment with VLMs</p>
                 <p class="authors">
                     <strong>Efthymios Tsaprazlis</strong>,
                     <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
@@ -426,10 +485,26 @@
                     <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
                 </p>
                 <p class="venue"><span class="badge">ECCV 2026</span>European Conference on Computer Vision, 2026</p>
+                <div class="pub-links">
+                    <a class="pub-btn" href="https://arxiv.org/pdf/2603.21573" target="_blank"><i class="fa-regular fa-file-pdf"></i>Paper</a>
+                    <a class="pub-btn" href="https://huggingface.co/collections/timtsapras23/cprt-69c0ae26f363f84d8f29f08a" target="_blank"><i class="fa-brands fa-hugging-face"></i>HF</a>
+                    <button class="pub-btn bib-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-quote-right"></i>BibTeX</button>
+                </div>
+                <div class="bibtex" hidden>
+                    <button class="pub-btn bib-copy" type="button">Copy</button>
+                    <pre>@inproceedings{tsaprazlis2026rethinking,
+  title={Rethinking Visual Privacy: A Compositional Privacy Risk Framework for Severity Assessment with VLMs},
+  author={Tsaprazlis, Efthymios and Feng, Tiantian and Ramakrishna, Anil and Karimireddy, Sai Praneeth and Gupta, Rahul and Narayanan, Shrikanth},
+  booktitle={European Conference on Computer Vision},
+  pages={269--286},
+  year={2026},
+  publisher={Springer Nature Switzerland}
+}</pre>
+                </div>
             </div>
 
             <div class="publication">
-                <p class="papertitle"><a href="https://arxiv.org/pdf/2509.18413">VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks</a></p>
+                <p class="papertitle">VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks</p>
                 <p class="authors">
                     <strong>Efthymios Tsaprazlis</strong>,
                     <a href="https://sav-eng.github.io/">Thanathai Lertpetchpun</a>,
@@ -438,10 +513,25 @@
                     <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
                 </p>
                 <p class="venue"><span class="badge">ICASSP 2026</span>IEEE International Conference on Acoustics, Speech and Signal Processing, 2026</p>
+                <div class="pub-links">
+                    <a class="pub-btn" href="https://arxiv.org/pdf/2509.18413" target="_blank"><i class="fa-regular fa-file-pdf"></i>Paper</a>
+                    <button class="pub-btn bib-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-quote-right"></i>BibTeX</button>
+                </div>
+                <div class="bibtex" hidden>
+                    <button class="pub-btn bib-copy" type="button">Copy</button>
+                    <pre>@inproceedings{tsaprazlis2026voxguard,
+  title={VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks},
+  author={Tsaprazlis, Efthymios and Lertpetchpun, Thanathai and Feng, Tiantian and Karimireddy, Sai Praneeth and Narayanan, Shrikanth},
+  booktitle={ICASSP 2026-2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={19042--19046},
+  year={2026},
+  organization={IEEE}
+}</pre>
+                </div>
             </div>
 
             <div class="publication">
-                <p class="papertitle"><a href="https://arxiv.org/abs/2509.23827">Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models</a></p>
+                <p class="papertitle">Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models</p>
                 <p class="authors">
                     <strong>Efthymios Tsaprazlis</strong>,
                     <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
@@ -450,6 +540,20 @@
                     <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
                 </p>
                 <p class="venue"><span class="badge">CVPRW 2026</span>IEEE/CVF CVPR Workshop: Safe Artificial Intelligence for All Domains, 2026</p>
+                <div class="pub-links">
+                    <a class="pub-btn" href="https://arxiv.org/pdf/2509.23827" target="_blank"><i class="fa-regular fa-file-pdf"></i>Paper</a>
+                    <button class="pub-btn bib-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-quote-right"></i>BibTeX</button>
+                </div>
+                <div class="bibtex" hidden>
+                    <button class="pub-btn bib-copy" type="button">Copy</button>
+                    <pre>@inproceedings{tsaprazlis2026assessing,
+  title={Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models},
+  author={Tsaprazlis, Efthymios and Feng, Tiantian and Ramakrishna, Anil and Gupta, Rahul and Narayanan, Shrikanth},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={4292--4301},
+  year={2026}
+}</pre>
+                </div>
             </div>
         </section>
 
@@ -457,7 +561,7 @@
             <h2>2025</h2>
 
             <div class="publication">
-                <p class="papertitle"><a href="https://robotics.ntua.gr/wp-content/uploads/sites/2/2025_Filntisis_Open-endedRoboticExplorationUsingVision-InspiredSimilarity-Foundation-Models_ICRA.pdf">Towards Open-ended Robotic Exploration using Vision-Inspired Similarity and Foundation Models</a></p>
+                <p class="papertitle">Towards Open-ended Robotic Exploration using Vision-Inspired Similarity and Foundation Models</p>
                 <p class="authors">
                     Panagiotis P. Filntisis,
                     <strong>Efthymios Tsaprazlis</strong>,
@@ -468,6 +572,21 @@
                     <a href="https://cvsp.cs.ntua.gr/members/maragos/">Petros Maragos</a>
                 </p>
                 <p class="venue"><span class="badge">ICRA 2025</span>IEEE International Conference on Robotics and Automation, 2025</p>
+                <div class="pub-links">
+                    <a class="pub-btn" href="https://robotics.ntua.gr/wp-content/uploads/sites/2/2025_Filntisis_Open-endedRoboticExplorationUsingVision-InspiredSimilarity-Foundation-Models_ICRA.pdf" target="_blank"><i class="fa-regular fa-file-pdf"></i>Paper</a>
+                    <button class="pub-btn bib-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-quote-right"></i>BibTeX</button>
+                </div>
+                <div class="bibtex" hidden>
+                    <button class="pub-btn bib-copy" type="button">Copy</button>
+                    <pre>@inproceedings{filntisis2025towards,
+  title={Towards Open-ended Robotic Exploration using Vision-Inspired Similarity and Foundation Models},
+  author={Filntisis, Panagiotis P and Tsaprazlis, Efthymios and Oikonomou, Paraskevas and Mattioli, Francesco and Santucci, Vieri Giuliano and Retsinas, George and Maragos, Petros},
+  booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={10103--10109},
+  year={2025},
+  organization={IEEE}
+}</pre>
+                </div>
             </div>
         </section>
 
@@ -475,7 +594,7 @@
             <h2>2023</h2>
 
             <div class="publication">
-                <p class="papertitle"><a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">Enhancing CLIP with a Third Modality</a></p>
+                <p class="papertitle">Enhancing CLIP with a Third Modality</p>
                 <p class="authors">
                     <strong>Efthymios Tsaprazlis</strong>,
                     <a href="https://georgiossmyrnis.github.io/">Georgios Smyrnis</a>,
@@ -483,12 +602,45 @@
                     <a href="https://cvsp.cs.ntua.gr/members/maragos/">Petros Maragos</a>
                 </p>
                 <p class="venue"><span class="badge">NeurIPSW 2023</span>NeurIPS Workshop: Self-Supervised Learning - Theory and Practice, 2023</p>
+                <div class="pub-links">
+                    <a class="pub-btn" href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf" target="_blank"><i class="fa-regular fa-file-pdf"></i>Paper</a>
+                    <button class="pub-btn bib-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-quote-right"></i>BibTeX</button>
+                </div>
+                <div class="bibtex" hidden>
+                    <button class="pub-btn bib-copy" type="button">Copy</button>
+                    <pre>@inproceedings{tsaprazlis2023enhancing,
+  title={Enhancing CLIP with a Third Modality},
+  author={Tsaprazlis, Efthymios and Smyrnis, Georgios and Dimakis, Alexandros G and Maragos, Petros},
+  booktitle={NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice},
+  year={2023}
+}</pre>
+                </div>
             </div>
         </section>
     </main>
 
+    <script>
+        // BibTeX buttons: toggle the entry; Copy puts it on the clipboard
+        document.querySelectorAll('.bib-toggle').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var box = button.closest('.publication').querySelector('.bibtex');
+                box.hidden = !box.hidden;
+                button.setAttribute('aria-expanded', String(!box.hidden));
+            });
+        });
+        document.querySelectorAll('.bib-copy').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var text = button.closest('.bibtex').querySelector('pre').textContent;
+                navigator.clipboard.writeText(text).then(function () {
+                    button.textContent = 'Copied!';
+                    setTimeout(function () { button.textContent = 'Copy'; }, 1500);
+                });
+            });
+        });
+    </script>
+
     <footer>
-        <p>&copy; 2026 Efthymios Tsaprazlis. All rights reserved.</p>
+        <p>&copy; 2026 Efthymios Tsaprazlis. All rights reserved. · Last updated: October 2026</p>
     </footer>
 </body>
 </html>
