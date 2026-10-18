@@ -15,37 +15,105 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 
     <style>
-        /* Colors: USC cardinal & gold as accents */
+        /* Colors: black, greys and a range of greens */
         :root {
-            --cardinal: #990000;
-            --cardinal-dark: #660000;
-            --gold: #CC9900;
-            --gold-bright: #FFCC00;
+            --chrome: #0b0d0c;
+            --header-bg: #14281d;
+            --footer-bg: #1a1f1c;
+            --chrome-accent: #86efac;
+            --nav-bg: rgba(11, 13, 12, 0.94);
+            --nav-text: #d6ddd8;
 
-            --bg: #1a1a1a;
-            --surface: #242424;
-            --surface-2: #2e2e2e;
-            --border: #3a3a3a;
-            --text: #ececec;
-            --text-muted: #a8a8a8;
-            --heading: #CC9900;
-            --link: #e0b23a;
-            --nav-bg: rgba(102, 0, 0, 0.92);
-            --nav-text: #f4f4f4;
+            --bg: #111312;
+            --surface: #191d1b;
+            --surface-2: #212623;
+            --border: #2b322e;
+            --text: #e6ebe7;
+            --text-muted: #96a39a;
+            --heading: #86efac;
+            --subheading: #c5e1cf;
+            --rule: #4b6b57;
+            --link: #34d399;
+            --date: #9cbfa7;
+            --accent: #34d399;
+            --accent-strong: #86efac;
+
+            /* Card edges cycle through these */
+            --shade-1: #34d399;
+            --shade-2: #84a98c;
+            --shade-3: #4ade80;
+            --shade-4: #6b8f71;
+
+            --badge-bg: #14532d;
+            --badge-border: #166534;
+            --badge-text: #bbf7d0;
+            --tag-bg: #222a25;
+            --tag-border: #3a4a40;
+            --tag-text: #b7cbbd;
+
+            /* Top bar, header and footer */
+            --nav-name: #ffffff;
+            --nav-border: transparent;
+            --nav-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+            --header-text: #ffffff;
+            --header-muted: #dfe8e2;
+            --header-border: transparent;
+            --header-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+            --social-bg: rgba(255, 255, 255, 0.15);
+            --social-border: transparent;
+            --social-text: #ffffff;
+            --social-hover-bg: #86efac;
+            --social-hover-text: #0b0d0c;
+            --footer-text: #f4f4f4;
         }
 
         @media (prefers-color-scheme: light) {
             :root {
-                --bg: #fafafa;
+                /* Light top bar, header and footer */
+                --chrome-accent: #15803d;
+                --nav-bg: rgba(255, 255, 255, 0.92);
+                --nav-text: #3a463f;
+                --nav-name: #14281d;
+                --nav-border: #dde3de;
+                --nav-shadow: 0 1px 6px rgba(20, 40, 29, 0.06);
+                --header-bg: #e6efe8;
+                --header-text: #14281d;
+                --header-muted: #4b6352;
+                --header-border: #d3ddd5;
+                --header-shadow: none;
+                --social-bg: #ffffff;
+                --social-border: #cfdcd2;
+                --social-text: #1f4d36;
+                --social-hover-bg: #14532d;
+                --social-hover-text: #ffffff;
+                --footer-bg: #e9eeea;
+                --footer-text: #4b5a50;
+
+                --bg: #f4f6f4;
                 --surface: #ffffff;
-                --surface-2: #f3f1ec;
-                --border: #e4e0d8;
-                --text: #1f1f1f;
-                --text-muted: #5c5c5c;
-                --heading: #660000;
-                --link: #990000;
-                --nav-bg: rgba(102, 0, 0, 0.95);
-                --nav-text: #f4f4f4;
+                --surface-2: #ecf0ed;
+                --border: #dde3de;
+                --text: #18201b;
+                --text-muted: #5a665e;
+                --heading: #14532d;
+                --subheading: #1f4d36;
+                --rule: #84a98c;
+                --link: #047857;
+                --date: #52796f;
+                --accent: #059669;
+                --accent-strong: #14532d;
+
+                --shade-1: #059669;
+                --shade-2: #84a98c;
+                --shade-3: #16a34a;
+                --shade-4: #52796f;
+
+                --badge-bg: #dcfce7;
+                --badge-border: #bbf7d0;
+                --badge-text: #166534;
+                --tag-bg: #eef3ef;
+                --tag-border: #d3ddd5;
+                --tag-text: #3f5a48;
             }
         }
 
@@ -84,7 +152,8 @@
             z-index: 1000;
             background-color: var(--nav-bg);
             backdrop-filter: blur(8px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid var(--nav-border);
+            box-shadow: var(--nav-shadow);
         }
 
         .nav-inner {
@@ -100,7 +169,7 @@
         .nav-name {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--nav-name);
             white-space: nowrap;
         }
 
@@ -119,14 +188,15 @@
         }
 
         nav a:hover {
-            color: var(--gold-bright);
+            color: var(--chrome-accent);
             text-decoration: none;
         }
 
         /* Header */
         header {
-            background: linear-gradient(to right, rgba(102, 0, 0, 0.95), rgba(204, 153, 0, 0.9));
-            color: white;
+            background: var(--header-bg);
+            color: var(--header-text);
+            border-bottom: 1px solid var(--header-border);
         }
 
         .header-inner {
@@ -156,12 +226,12 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 0.4rem;
-            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: var(--header-shadow);
         }
 
         header .subtitle {
             font-size: 1.1rem;
-            opacity: 0.95;
+            color: var(--header-muted);
             margin-bottom: 1.1rem;
         }
 
@@ -179,15 +249,16 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
+            background: var(--social-bg);
+            border: 1px solid var(--social-border);
+            color: var(--social-text);
             font-size: 1.15rem;
             transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
         }
 
         .social-links a:hover {
-            background: white;
-            color: var(--cardinal-dark);
+            background: var(--social-hover-bg);
+            color: var(--social-hover-text);
             text-decoration: none;
         }
 
@@ -217,8 +288,8 @@
             content: '';
             flex: 1;
             height: 2px;
-            background: linear-gradient(to right, var(--gold), transparent);
-            opacity: 0.6;
+            background: var(--rule);
+            opacity: 0.8;
         }
 
         section p {
@@ -247,7 +318,7 @@
 
         .news .date {
             font-weight: 600;
-            color: var(--heading);
+            color: var(--date);
             font-variant-numeric: tabular-nums;
             white-space: nowrap;
         }
@@ -256,15 +327,27 @@
         .publication {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--accent);
             border-radius: 8px;
             padding: 1.1rem 1.3rem;
             margin-bottom: 1rem;
             transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
+        .publication:nth-of-type(4n+2) {
+            border-left-color: var(--shade-2);
+        }
+
+        .publication:nth-of-type(4n+3) {
+            border-left-color: var(--shade-3);
+        }
+
+        .publication:nth-of-type(4n+4) {
+            border-left-color: var(--shade-4);
+        }
+
         .publication:hover {
-            border-left-color: var(--cardinal);
+            border-left-color: var(--accent-strong);
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
         }
 
@@ -318,8 +401,9 @@
             letter-spacing: 0.02em;
             padding: 0.15rem 0.55rem;
             border-radius: 4px;
-            background: var(--cardinal-dark);
-            color: var(--gold-bright);
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--badge-text);
         }
 
         .more-link {
@@ -334,15 +418,15 @@
 
         /* Footer */
         footer {
-            background-color: var(--cardinal-dark);
-            color: #f4f4f4;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
             text-align: center;
             padding: 1.2rem;
             font-size: 0.9rem;
         }
 
         footer a {
-            color: var(--gold-bright);
+            color: var(--chrome-accent);
         }
 
         /* Mobile */
