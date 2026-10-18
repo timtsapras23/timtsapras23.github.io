@@ -7,524 +7,523 @@
     <title>Efthymios (Themis) Tsaprazlis</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 
     <style>
+        /* Colors: USC cardinal & gold as accents */
+        :root {
+            --cardinal: #990000;
+            --cardinal-dark: #660000;
+            --gold: #CC9900;
+            --gold-bright: #FFCC00;
+
+            --bg: #1a1a1a;
+            --surface: #242424;
+            --surface-2: #2e2e2e;
+            --border: #3a3a3a;
+            --text: #ececec;
+            --text-muted: #a8a8a8;
+            --heading: #CC9900;
+            --link: #e0b23a;
+            --nav-bg: rgba(102, 0, 0, 0.92);
+            --nav-text: #f4f4f4;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #fafafa;
+                --surface: #ffffff;
+                --surface-2: #f3f1ec;
+                --border: #e4e0d8;
+                --text: #1f1f1f;
+                --text-muted: #5c5c5c;
+                --heading: #660000;
+                --link: #990000;
+                --nav-bg: rgba(102, 0, 0, 0.95);
+                --nav-text: #f4f4f4;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 72px;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #1f1f1f;
-            color: #f4f4f4;
-            line-height: 1.4;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 1.02rem;
         }
 
-        /* Complex Header Layout */
-        header {
-            background: linear-gradient(to right, rgba(102, 0, 0, 0.9), rgba(204, 153, 0, 0.9)), url('https://example.com/header-bg.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 4rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-            overflow: hidden;
-            height: 350px;
+        a {
+            color: var(--link);
+            text-decoration: none;
         }
 
-        header img.profile {
-            display: block;
-            border-radius: 50%;
-            border: 6px solid #f4f4f4;
-            width: 250px; /* Increased size */
-            height: 250px;
-            object-fit: cover;
-            position: absolute;
-            right: 5%; /* Moved towards the center */
-            top: 25px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        header img.usc-logo {
-            width: 150px;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-            text-align: center; /* Centered text */
-        }
-
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            text-align: center; /* Centered text */
-        }
-
-        /* Icons under header */
-        .social-links {
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .social-links a {
-            color: #CC9900;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .social-links a:hover {
-            color: white;
+        a:hover {
+            text-decoration: underline;
         }
 
         /* Navigation Bar */
         nav {
-            background-color: rgba(204, 153, 0, 0.9);
-            text-align: center;
-            padding: 1rem;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 1.4rem;
+            justify-content: flex-end;
         }
 
         nav a {
-            color: #660000;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: color 0.3s ease-in-out;
+            color: var(--nav-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-in-out;
         }
 
         nav a:hover {
+            color: var(--gold-bright);
+            text-decoration: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, rgba(102, 0, 0, 0.95), rgba(204, 153, 0, 0.9));
             color: white;
         }
 
-        /* Sections */
-        section {
-            padding: 4rem 6rem; /* Increased side margins */
-            margin-left: 6rem;
-            margin-right: 6rem;
-            margin-bottom: 2rem;
-            background: #444;
-            border-radius: 10px;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 10;
-            transition: transform 0.3s ease-in-out;
-            text-align: center; /* Center text for sections */
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2.5rem;
         }
 
-        section:hover {
-            transform: translateY(-10px);
+        header img.profile {
+            flex-shrink: 0;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            border: 5px solid #f4f4f4;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.1rem;
+        }
+
+        /* Icons under header */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1.15rem;
+            transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--cardinal-dark);
+            text-decoration: none;
+        }
+
+        /* Main content */
+        main {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 3rem;
+        }
+
+        section {
+            padding: 2.5rem 0 1rem;
         }
 
         h2 {
-            color: #CC9900;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        section p a {
-            color: #CC9900;
-            text-decoration: underline;
-        }
-        /* Publications */
-        .publication {
+            font-family: 'Poppins', sans-serif;
+            color: var(--heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.1rem;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center content */
-            margin: 1rem 0;
+            gap: 0.8rem;
         }
 
-        .publication img {
-            width: 180px; /* Publication photo size */
-            height: 120px;
-            margin-right: 30px;
-            margin-bottom: 15px;
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            opacity: 0.6;
         }
-        
-        
+
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        /* News */
+        .news {
+            list-style: none;
+            max-height: 420px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .news li {
+            display: grid;
+            grid-template-columns: 6.5rem 1fr;
+            gap: 1rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news li:last-child {
+            border-bottom: none;
+        }
+
+        .news .date {
+            font-weight: 600;
+            color: var(--heading);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        /* Publications */
+        .publication {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.1rem 1.3rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .publication:hover {
+            border-left-color: var(--cardinal);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .publication .papertitle {
+            font-weight: 600;
+            font-size: 1.05rem;
+            line-height: 1.4;
+            margin-bottom: 0.35rem;
+        }
+
+        .publication .papertitle a {
+            color: var(--text);
+        }
+
+        .publication .papertitle a:hover {
+            color: var(--link);
+        }
+
+        .publication .authors {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .authors strong {
+            color: var(--text);
+        }
+
+        .publication .authors a {
+            color: var(--text-muted);
+        }
+
+        .publication .authors a:hover {
+            color: var(--link);
+        }
+
+        .publication .venue {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .badge {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.02em;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            background: var(--cardinal-dark);
+            color: var(--gold-bright);
+        }
+
+        .more-link {
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .more-link i {
+            font-size: 0.85em;
+            margin-left: 0.3rem;
+        }
 
         /* Footer */
         footer {
-            background-color: #660000;
-            color: white;
+            background-color: var(--cardinal-dark);
+            color: #f4f4f4;
             text-align: center;
-            padding: 1rem;
-            border-radius: 0 0 10px 10px;
-            margin-top: -40px;
+            padding: 1.2rem;
+            font-size: 0.9rem;
         }
 
         footer a {
-            color: #CC9900;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
+            color: var(--gold-bright);
         }
 
-        footer a:hover {
-            color: white;
-        }
+        /* Mobile */
+        @media (max-width: 720px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 0.4rem;
+                padding: 0.7rem 1rem;
+            }
 
-        header img.mobile {
-            display: none; /* Hide image by default */
-        }
-        /* Media Queries for Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header {
-                padding: 2rem 1rem; /* Adjust padding for smaller screens */
+            .nav-links {
+                justify-content: center;
+                gap: 0.2rem 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            html {
+                scroll-padding-top: 100px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.4rem;
+                padding: 2.2rem 1rem;
             }
 
             header img.profile {
-                display: none;
+                width: 160px;
+                height: 160px;
             }
 
             header h1 {
-                font-size: 2.5rem; /* Smaller heading */
-            }
-
-            header p {
-                font-size: 1rem; /* Smaller paragraph text */
-            }
-
-            header img.mobile {
-                display: block; /* Show image on mobile */
-                width: 180px; /* Adjusted profile picture size */
-                height: 180px;
-                margin: 10px auto; /* Center image and add some margin */
-                order: 1; /* Move the image below the icons */
-                border-radius: 50%;
-                border: 6px solid #f4f4f4;
-                object-fit: cover;
-                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+                font-size: 1.9rem;
             }
 
             .social-links {
-                order: 0; /* Ensure icons stay above the image */
+                justify-content: center;
             }
 
-            nav a {
-                margin: 0 10px; /* Adjust margins for nav links */
-                font-size: 1rem; /* Smaller font size */
-            }
-
-            section {
-                padding: 2rem 2rem; /* Decreased padding for sections */
-                margin-left: 0rem;
-                margin-right: 0rem;
+            main {
+                padding: 0.5rem 1rem 2rem;
             }
 
             h2 {
-                font-size: 2rem; /* Smaller section headings */
+                font-size: 1.4rem;
             }
 
-            p {
-                font-size: 0.9rem; /* Smaller paragraph font size */
-            }
-
-            .publication img {
-                width: 100px; /* Smaller publication image */
-                height: 65px;
-            }
-
-            /* Publications Section */
-            table {
-                display: block; /* Stack publications vertically */
-                overflow-x: auto; /* Allow horizontal scrolling */
-                margin-bottom: 1rem; /* Add margin for spacing */
-            }
-
-            td {
-                display: flex;
-                flex-direction: column; /* Stack image and text vertically */
-                align-items: center; /* Center content */
-
-            }
-
-            td img {
-                margin-bottom: 0.5rem; /* Space between image and text */
+            .news li {
+                grid-template-columns: 1fr;
+                gap: 0.1rem;
             }
         }
-
-        /* Responsive design for very small screens */
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2rem; /* Further reduce heading size */
-            }
-
-            nav a {
-                font-size: 0.9rem; /* Further reduce nav link size */
-            }
-
-            h2 {
-                font-size: 1.8rem; /* Further reduce section headings */
-            }
-
-            p {
-                font-size: 0.8rem; /* Further reduce paragraph font size */
-            }
-        }
-
-        /* Light Theme */
-        @media (prefers-color-scheme: light) {
-            body {
-                background-color: #ffffff;
-                color: #1f1f1f;
-            }
-
-            header {
-                background: linear-gradient(to right, rgba(204, 153, 0, 0.9), rgba(102, 0, 0, 0.9)), url('https://example.com/header-bg.jpg') no-repeat center center/cover;
-                color: rgb(255, 255, 255);
-            }
-
-            .social-links a {
-                color: rgba(102, 0, 0, 0.9);
-            }
-
-            nav {
-                background-color: rgba(102, 0, 0, 0.9);
-            }
-
-            nav a {
-                color: #f4f4f4;
-            }
-
-            section {
-                background: #f4f4f4;
-            }
-
-            h2 {
-                color: #660000;
-            }
-
-            footer {
-                background-color: #CC9900;
-                color: black;
-            }
-             /* Make publication boxes lighter in light theme */
-            .publication > div {
-                background: #c3bfbf !important; /* Light gray background for light theme */
-                color: #1f1f1f; /* Ensure text is dark */
-            }
-
-            .publication > div a {
-                color: #660000; /* Adjust links if needed */
-            }
-        }
-
-
-
-        /* Fancy Section Divider */
-        .wave {
-            position: relative;
-            background: #333;
-            height: 150px;
-            margin-top: -150px;
-            z-index: 0;
-        }
-
-        .wave::before, .wave::after {
-            display: none;
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: url('https://example.com/wave-divider.svg') no-repeat;
-            background-size: cover;
-        }
-    
     </style>
 </head>
 <body>
 
-    <header>
-        <div>
-            <!--<img src="usc-logo.png" alt="USC Logo" class="usc-logo">-->
-            <h1>Efthymios (Themis) Tsaprazlis</h1>
-            <p>PhD Student | SAIL | University of Southern California</p>
-            <div class="social-links">
-                <a href="data/TsaprazlisEfthymios_2026.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i></a>
-                <a href="https://www.linkedin.com/in/efthymios-tsaprazlis/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:tsaprazl@usc.edu"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://scholar.google.com/citations?user=xM5vqYoAAAAJ&hl=en&oi=sra" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
-                <a href="https://github.com/timtsapras23/" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://huggingface.co/timtsapras23" target="_blank"><i class="fa-brands fa-hugging-face"></i></a>
+    <nav>
+        <div class="nav-inner">
+            <span class="nav-name">Themis Tsaprazlis</span>
+            <div class="nav-links">
+                <a href="#about">About Me</a>
+                <a href="cv.html">CV</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
-        <img src="images/IMG_1672%202.JPG" alt="Mobile Photo" class="mobile">
-        <img src="images/IMG_1672%202.JPG" alt="Your Photo" class="profile">
-    </header>
-
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#research">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="#news">News</a> <!-- Moved news link -->
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a Computer Science PhD student at University of Southern California and a graaduate research assistant at <a href="https://sail.usc.edu/"> Signal Analysis and Interpretation Lab (SAIL)</a> , under the supervision of Professor <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>. I also collaborate closely with Professor <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>. Previously, I did my Bachelors in the ECE Departement at National Technical University of Athens where I worked with Professor <a href="http://cvsp.cs.ntua.gr/maragos/index.shtm">Petros Maragos</a>. Also, I was an external collaborator of the Machine Learning Lab at Univerity of Texas at Austin, where I worked with Professor <a href="https://users.ece.utexas.edu/~dimakis/">Alex Dimakis</a> .
+    <header>
+        <div class="header-inner">
+            <img src="images/IMG_1672%202.JPG" alt="Photo of Themis Tsaprazlis" class="profile">
+            <div>
+                <h1>Efthymios (Themis) Tsaprazlis</h1>
+                <p class="subtitle">PhD Student · SAIL · University of Southern California</p>
+                <div class="social-links">
+                    <a href="data/TsaprazlisEfthymios_2026.pdf" target="_blank" title="CV" aria-label="CV"><i class="fa-solid fa-file-lines"></i></a>
+                    <a href="https://www.linkedin.com/in/efthymios-tsaprazlis/" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:tsaprazl@usc.edu" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://scholar.google.com/citations?user=xM5vqYoAAAAJ&hl=en&oi=sra" target="_blank" title="Google Scholar" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+                    <a href="https://github.com/timtsapras23/" target="_blank" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://huggingface.co/timtsapras23" target="_blank" title="Hugging Face" aria-label="Hugging Face"><i class="fa-brands fa-hugging-face"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a Computer Science PhD student at University of Southern California and a graduate research assistant at <a href="https://sail.usc.edu/">Signal Analysis and Interpretation Lab (SAIL)</a>, under the supervision of Professor <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>. I also collaborate closely with Professor <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>. Previously, I did my Bachelors in the ECE Department at National Technical University of Athens where I worked with Professor <a href="http://cvsp.cs.ntua.gr/maragos/index.shtm">Petros Maragos</a>. Also, I was an external collaborator of the Machine Learning Lab at University of Texas at Austin, where I worked with Professor <a href="https://users.ece.utexas.edu/~dimakis/">Alex Dimakis</a>.</p>
         </section>
 
-    <section id="research" style="text-align: left;">
-    <h2>Research Interests</h2>
-    <p>My research lies at the intersection of <strong>applied and theoretical machine learning</strong>, developing systems that learn efficiently, generalize across modalities, and remain trustworthy in real-world deployment.</p>
-    
-    </section>
+        <section id="research">
+            <h2>Research Interests</h2>
+            <p>My research lies at the intersection of <strong>applied and theoretical machine learning</strong>, developing systems that learn efficiently, generalize across modalities, and remain trustworthy in real-world deployment.</p>
+        </section>
 
-    <section id="news" style="text-align: left;">
-        <h2>News</h2>
-        <p>
-	    &#x2022; [Jul 2026] Our work "Can We Enable Speech Data With Differential Privacy?" will appear in <b>Re-Data Workshop @ COLM 2026</b> 
-	 <p>
-            &#x2022; [Jun 2026] Our paper "Rethinking Visual Privacy: A Compositional Privacy Risk Framework or Severity Assessment with VLMs" got accepted at <b>ECCV 2026</b>.
-        </p>
-        <p>
-            &#x2022; [Mar 2026] Our paper "Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models" got accepted at <b>CVPR 2026 Workshop: SAIAD</b>.
-        </p>
-        <p>
-            &#x2022; [Jan 2026] Our paper "VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks" got accepted at <b>ICASSP 2026</b>.
-        </p>
-         <p>
-            &#x2022; [Nov 2025] Received the Gerondelis Foundation Scholarship for my PhD studies at USC.
-        </p>
-	<p>
-            &#x2022; [Sep 2025] Received a gift award from the <a href="https://trustedai.usc.edu/">USC-Amazon Center on Secure and Trusted Machine Learning</a> for my research on explainable privacy understanding in multimodal AI.
-        </p>
-        <p>
-            &#x2022; [Jan 2025] We got a paper accepted in <b>ICRA 2025</b>.
-        </p>
-        <p>
-            &#x2022; [Aug 2024] I started my PhD at University of Southern California.
-        </p>
-        <p>
-            &#x2022; [Jan 2024] I started a new position as Research Assistant in  <a href="https://www.athenarc.gr/en/rpi"> Robotics Unit of the Athena Research and Innovation Center (Athena RC) </a> and <a href="http://cvsp.cs.ntua.gr/"> CVSP Group</a>.
-          </p>
-          <p>
-            &#x2022; [Oct 2023] Our paper "Enhancing CLIP with a Third Modality" got accepted in <b> NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice</b>.  
-          </p>
-          <p>
-            &#x2022; [Oct 2023] I joined Workable as a Machine Learning Engineer intern. 
-          </p>
-    </section>
+        <section id="news">
+            <h2>News</h2>
+            <ul class="news">
+                <li><span class="date">Jul 2026</span><span>Our work "Can We Enable Speech Data With Differential Privacy?" will appear in <b>Re-Data Workshop @ COLM 2026</b>.</span></li>
+                <li><span class="date">Jun 2026</span><span>Our paper "Rethinking Visual Privacy: A Compositional Privacy Risk Framework or Severity Assessment with VLMs" got accepted at <b>ECCV 2026</b>.</span></li>
+                <li><span class="date">Mar 2026</span><span>Our paper "Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models" got accepted at <b>CVPR 2026 Workshop: SAIAD</b>.</span></li>
+                <li><span class="date">Jan 2026</span><span>Our paper "VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks" got accepted at <b>ICASSP 2026</b>.</span></li>
+                <li><span class="date">Nov 2025</span><span>Received the Gerondelis Foundation Scholarship for my PhD studies at USC.</span></li>
+                <li><span class="date">Sep 2025</span><span>Received a gift award from the <a href="https://trustedai.usc.edu/">USC-Amazon Center on Secure and Trusted Machine Learning</a> for my research on explainable privacy understanding in multimodal AI.</span></li>
+                <li><span class="date">Jan 2025</span><span>We got a paper accepted in <b>ICRA 2025</b>.</span></li>
+                <li><span class="date">Aug 2024</span><span>I started my PhD at University of Southern California.</span></li>
+                <li><span class="date">Jan 2024</span><span>I started a new position as Research Assistant in <a href="https://www.athenarc.gr/en/rpi">Robotics Unit of the Athena Research and Innovation Center (Athena RC)</a> and <a href="http://cvsp.cs.ntua.gr/">CVSP Group</a>.</span></li>
+                <li><span class="date">Oct 2023</span><span>Our paper "Enhancing CLIP with a Third Modality" got accepted in <b>NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice</b>.</span></li>
+                <li><span class="date">Oct 2023</span><span>I joined Workable as a Machine Learning Engineer intern.</span></li>
+            </ul>
+        </section>
 
-    <section id="publications">
-     <h2>Publications</h2>
-     </div>
-        <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://arxiv.org/pdf/2603.21573">
-         <span class="papertitle">Rethinking Visual Privacy: A Compositional Privacy Risk Framework or Severity Assessment with VLMs</span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
-         <a href="https://anilkramakrishna.github.io/">Anil Ramakrishna</a>,
-         <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>,
-         <a href="https://guptarah.github.io/">Rahul Gupta</a>,
-         <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
-        </p>
-        <p><em>European Conference on Computer Vision (ECCV)</em>, 2026</p>
-        </div>
-        </div>
-     <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://arxiv.org/pdf/2509.18413">
-         <span class="papertitle">VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks </span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://sav-eng.github.io/">Thanathai Lertpetchpun</a>,
-         <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
-         <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>,
-         <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
-        </p>
-         <p><em>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>, 2026</p>
-        </div>
-     </div>
-        <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://arxiv.org/abs/2509.23827">
-         <span class="papertitle">Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models</span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
-         <a href="https://anilkramakrishna.github.io/">Anil Ramakrishna</a>,
-         <a href="https://guptarah.github.io/">Rahul Gupta</a>,
-         <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
-        </p>
-        <p><em>IEEE/CVF CVPR Workshop: Safe Artificial Intelligence for All Domains</em>, 2026</p>
-        </div>
-        </div>
-     <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://robotics.ntua.gr/wp-content/uploads/sites/2/2025_Filntisis_Open-endedRoboticExplorationUsingVision-InspiredSimilarity-Foundation-Models_ICRA.pdf">
-         <span class="papertitle">Towards Open-ended Robotic Exploration using Vision-Inspired Similarity and Foundation Models</span></a></strong>
-        </p>
-        <p>
-         Panagiotis P. Filntisis,
-         <strong>Efthymios Tsaprazlis</strong>,
-         Paraskevas Oikonomou,
-         Francesco Mattioli,
-         Vieri Giuliano Santucci,
-         George Retsinas,
-         <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
-        </p>
-        <p><em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2025</p>
-        </div>
-     </div>
-     <div class="publication" style="margin: 2rem 0 2.5rem 0; justify-content: center;">
-        <div style="text-align: left; width: 750px; min-height: 120px; background: #333; border-radius: 8px; padding: 18px 20px; margin: 0 auto;">
-        <p><strong><a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">
-         <span class="papertitle">Enhancing CLIP with a Third Modality</span></a></strong>
-        </p>
-        <p>
-         <strong>Efthymios Tsaprazlis</strong>,
-         <a href="https://georgiossmyrnis.github.io/">Georgios Smyrnis</a>,
-         <a href="https://users.ece.utexas.edu/~dimakis/">Alexandros G. Dimakis</a>,
-         <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
-        </p>
-        <p><em>NeurIPS Workshop: Self-Supervised Learning - Theory and Practice</em>, 2023</p>
-        </div>
-     </div>
-    </section>
+        <section id="publications">
+            <h2>Selected Publications</h2>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>You can reach me via email at <a href="mailto:tsaprazl@usc.edu">tsaprazl@usc.edu</a> or connect with me on <a href="https://www.linkedin.com/in/efthymios-tsaprazlis/" target="_blank">LinkedIn</a>.</p>
-    </section>
+            <div class="publication">
+                <p class="papertitle"><a href="https://arxiv.org/pdf/2603.21573">Rethinking Visual Privacy: A Compositional Privacy Risk Framework or Severity Assessment with VLMs</a></p>
+                <p class="authors">
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
+                    <a href="https://anilkramakrishna.github.io/">Anil Ramakrishna</a>,
+                    <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>,
+                    <a href="https://guptarah.github.io/">Rahul Gupta</a>,
+                    <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
+                </p>
+                <p class="venue"><span class="badge">ECCV 2026</span>European Conference on Computer Vision</p>
+            </div>
+
+            <div class="publication">
+                <p class="papertitle"><a href="https://arxiv.org/pdf/2509.18413">VoxGuard: Evaluating User and Attribute Privacy in Speech via Membership Inference Attacks</a></p>
+                <p class="authors">
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://sav-eng.github.io/">Thanathai Lertpetchpun</a>,
+                    <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
+                    <a href="https://spkreddy.org/">Sai Praneeth Karimireddy</a>,
+                    <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
+                </p>
+                <p class="venue"><span class="badge">ICASSP 2026</span>IEEE International Conference on Acoustics, Speech and Signal Processing</p>
+            </div>
+
+            <div class="publication">
+                <p class="papertitle"><a href="https://arxiv.org/abs/2509.23827">Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models</a></p>
+                <p class="authors">
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
+                    <a href="https://anilkramakrishna.github.io/">Anil Ramakrishna</a>,
+                    <a href="https://guptarah.github.io/">Rahul Gupta</a>,
+                    <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
+                </p>
+                <p class="venue"><span class="badge">CVPRW 2026</span>IEEE/CVF CVPR Workshop: Safe Artificial Intelligence for All Domains</p>
+            </div>
+
+            <div class="publication">
+                <p class="papertitle"><a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">Enhancing CLIP with a Third Modality</a></p>
+                <p class="authors">
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://georgiossmyrnis.github.io/">Georgios Smyrnis</a>,
+                    <a href="https://users.ece.utexas.edu/~dimakis/">Alexandros G. Dimakis</a>,
+                    <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>
+                </p>
+                <p class="venue"><span class="badge">NeurIPSW 2023</span>NeurIPS Workshop: Self-Supervised Learning - Theory and Practice</p>
+            </div>
+
+            <p class="more-link"><a href="publications.html">All publications <i class="fa-solid fa-arrow-right"></i></a></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>You can reach me via email at <a href="mailto:tsaprazl@usc.edu">tsaprazl@usc.edu</a> or connect with me on <a href="https://www.linkedin.com/in/efthymios-tsaprazlis/" target="_blank">LinkedIn</a>.</p>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Efthymios Tsaprazlis. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-<!--
-
-
--->

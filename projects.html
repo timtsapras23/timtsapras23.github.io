@@ -1,325 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects — Efthymios (Themis) Tsaprazlis" />
-  <title>Projects | Efthymios (Themis) Tsaprazlis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects — Efthymios (Themis) Tsaprazlis">
+    <title>Projects | Efthymios (Themis) Tsaprazlis</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (optional; used for small icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <style>
+        /* Colors: same tokens as index.html */
+        :root {
+            --cardinal: #990000;
+            --cardinal-dark: #660000;
+            --gold: #CC9900;
+            --gold-bright: #FFCC00;
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #1f1f1f;
-      color: #f4f4f4;
-      line-height: 1.4;
-    }
+            --bg: #1a1a1a;
+            --surface: #242424;
+            --surface-2: #2e2e2e;
+            --border: #3a3a3a;
+            --text: #ececec;
+            --text-muted: #a8a8a8;
+            --heading: #CC9900;
+            --link: #e0b23a;
+            --nav-bg: rgba(102, 0, 0, 0.92);
+            --nav-text: #f4f4f4;
+            --tag-bg: rgba(204, 153, 0, 0.12);
+            --tag-border: rgba(204, 153, 0, 0.45);
+            --tag-text: #f0c75a;
+        }
 
-    /* Keep nav consistent with your main page */
-    nav {
-      background-color: rgba(204, 153, 0, 0.9);
-      text-align: center;
-      padding: 1rem;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #fafafa;
+                --surface: #ffffff;
+                --surface-2: #f3f1ec;
+                --border: #e4e0d8;
+                --text: #1f1f1f;
+                --text-muted: #5c5c5c;
+                --heading: #660000;
+                --link: #990000;
+                --nav-bg: rgba(102, 0, 0, 0.95);
+                --nav-text: #f4f4f4;
+                --tag-bg: rgba(102, 0, 0, 0.06);
+                --tag-border: rgba(102, 0, 0, 0.2);
+                --tag-text: #660000;
+            }
+        }
 
-    nav a {
-      color: #660000;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: color 0.3s ease-in-out;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    nav a:hover { color: white; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 1.02rem;
+        }
 
-    /* Page header like the screenshot ("Projects" + divider) */
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2.8rem 1.2rem 3.5rem 1.2rem;
-    }
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
 
-    .page-title {
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      letter-spacing: 0.2px;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    .title-divider {
-      height: 2px;
-      width: 100%;
-      background: linear-gradient(90deg, rgba(204,153,0,0.95), rgba(0,0,0,0));
-      opacity: 0.9;
-      margin-bottom: 1.8rem;
-    }
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
 
-    /* Grid of project cards (2 columns on desktop) */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
+        .nav-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
 
-    /* Card styling inspired by your screenshot */
-    .project-card {
-      background: #2a2f3a;                 /* deep slate */
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 18px;
-      padding: 22px 22px 18px 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
+        .nav-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+        }
 
-    .project-card a {
-      color: #4da3ff;
-      text-decoration: none;
-    }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 1.4rem;
+            justify-content: flex-end;
+        }
 
-    .project-card a:hover {
-      color: #82c0ff;
-      text-decoration: underline;
-    }
-    .project-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(204,153,0,0.35);
-    }
+        nav a {
+            color: var(--nav-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-in-out;
+        }
 
-    .project-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+        nav a:hover,
+        nav a.active {
+            color: var(--gold-bright);
+            text-decoration: none;
+        }
 
-    .project-meta {
-      font-size: 0.95rem;
-      opacity: 0.75;
-      margin-bottom: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
+        /* Header */
+        header {
+            background: linear-gradient(to right, rgba(102, 0, 0, 0.95), rgba(204, 153, 0, 0.9));
+            color: white;
+        }
 
-    .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: rgba(244,244,244,0.55);
-      display: inline-block;
-      transform: translateY(-1px);
-    }
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem;
+        }
 
-    .project-bullets {
-      margin-top: 8px;
-      padding-left: 18px;
-      opacity: 0.95;
-    }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-    .project-bullets li {
-      margin: 10px 0;
-    }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-top: 0.3rem;
+        }
 
-    /* Tags row */
-    .tags {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+        /* Main content */
+        main {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(204, 153, 0, 0.12);      
-      border: 1px solid rgba(204, 153, 0, 0.45); 
-      color: rgba(255, 215, 90, 0.95);           
+        /* Project cards */
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.3rem 1.5rem;
+            margin-bottom: 1.2rem;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
 
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-    }
+        .project-card:hover {
+            border-left-color: var(--cardinal);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
 
-    /* Optional: small corner accent (subtle) */
-    .project-card::before {
-      content: "";
-      position: absolute;
-      top: -70px;
-      right: -70px;
-      width: 170px;
-      height: 170px;
-      background: radial-gradient(circle, rgba(204,153,0,0.18), rgba(0,0,0,0) 60%);
-      transform: rotate(12deg);
-      pointer-events: none;
-    }
+        .project-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--heading);
+            margin-bottom: 0.4rem;
+        }
 
-    /* Mobile */
-    @media (max-width: 900px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      nav a { margin: 0 10px; font-size: 1rem; }
-      .page-title { font-size: 2.1rem; }
-    }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 1.2rem;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
 
-    /* Light theme (optional) to mirror your main page behavior */
-    @media (prefers-color-scheme: light) {
-      body { background-color: #ffffff; color: #1f1f1f; }
+        .project-meta i {
+            margin-right: 0.35rem;
+        }
 
-      nav { background-color: rgba(102, 0, 0, 0.9); }
-      nav a { color: #f4f4f4; }
+        .project-bullets {
+            padding-left: 1.2rem;
+        }
 
-      .project-card {
-        background: #f4f4f4;
-        color: #1f1f1f;
-        border-color: rgba(0,0,0,0.10);
-      }
+        .project-bullets li {
+            margin: 0.35rem 0;
+        }
 
-      .project-meta { opacity: 0.7; }
-      .tags { border-top-color: rgba(0,0,0,0.10); }
+        .project-bullets li::marker {
+            color: var(--gold);
+        }
 
-      .tag {
-        background: rgba(102, 0, 0, 0.08);
-        border-color: rgba(102, 0, 0, 0.18);
-        color: rgba(102, 0, 0, 0.95);
-      }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
 
-      .title-divider {
-        background: linear-gradient(90deg, rgba(102,0,0,0.85), rgba(0,0,0,0));
-      }
-    }
-  </style>
+        .tag {
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            color: var(--tag-text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--cardinal-dark);
+            color: #f4f4f4;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 720px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 0.4rem;
+                padding: 0.7rem 1rem;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 0.2rem 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .header-inner {
+                text-align: center;
+                padding: 1.8rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem 2rem;
+            }
+
+            .project-card {
+                padding: 1.1rem 1.1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <nav>
-    <!-- keep this consistent with index.html -->
-    <a href="index.html#about">About Me</a>
-    <a href="index.html#research">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="index.html#news">News</a>
-    <a href="index.html#publications">Publications</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
 
-  <main class="page">
-    <h1 class="page-title">Projects</h1>
-    <div class="title-divider"></div>
-
-    <section class="projects-grid">
-
-      <!-- Card 1 -->
-      <article class="project-card">
-        <div class="project-title">IARPA HIATUS: Human Interpretable Attribution of Text using Underlying Structure</div>
-
-        <div class="project-meta">
-          <span><i class="fa-regular fa-calendar"></i> Sep 2025 – Present</span>
-          <span class="dot"></span>
-          <span><i class="fa-sharp fa-solid fa-graduation-cap"></i> USC ISI · UMD · UMich · UBirmingham </span>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="index.html">Themis Tsaprazlis</a>
+            <div class="nav-links">
+                <a href="index.html#about">About Me</a>
+                <a href="cv.html">CV</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
         </div>
+    </nav>
 
-        <ul class="project-bullets">
-          <li> Formalized evaluation protocols for user and attribute privacy leakage in speech.
-          <li> Developing a dataset and benchmark for authorship attribution from spoken language.
-          <li> Designing methods for speaker anonymization across both acoustic and linguistic modalities.
-        </ul>
-
-        <div class="tags">
-          <span class="tag">Speaker Verification</span>
-          <span class="tag">Speaker Anonymization</span>
-          <span class="tag">DP</span>
+    <header>
+        <div class="header-inner">
+            <h1>Projects</h1>
+            <p class="subtitle">Research projects I have worked on</p>
         </div>
-      </article>
+    </header>
 
-      <article class="project-card">
-        <div class="project-title">Visual Privacy Understanding</div>
+    <main>
+        <article class="project-card">
+            <h2 class="project-title">IARPA HIATUS: Human Interpretable Attribution of Text using Underlying Structure</h2>
+            <div class="project-meta">
+                <span><i class="fa-regular fa-calendar"></i>Sep 2025 – Present</span>
+                <span><i class="fa-solid fa-building-columns"></i>USC ISI · UMD · UMich · UBirmingham</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Formalized evaluation protocols for user and attribute privacy leakage in speech.</li>
+                <li>Developing a dataset and benchmark for authorship attribution from spoken language.</li>
+                <li>Designing methods for speaker anonymization across both acoustic and linguistic modalities.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Speaker Verification</span>
+                <span class="tag">Speaker Anonymization</span>
+                <span class="tag">DP</span>
+            </div>
+        </article>
 
-        <div class="project-meta">
-          <span><i class="fa-regular fa-calendar"></i> Sep 2024 – Present</span>
-          <span class="dot"></span>
-          <span><i class="fa-sharp fa-solid fa-graduation-cap"></i> USC · Amazon </span>
-        </div>
+        <article class="project-card">
+            <h2 class="project-title">Visual Privacy Understanding</h2>
+            <div class="project-meta">
+                <span><i class="fa-regular fa-calendar"></i>Sep 2024 – Present</span>
+                <span><i class="fa-solid fa-building-columns"></i>USC · Amazon</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Received a gift award from the <a href="https://trustedai.usc.edu/">USC-Amazon Center on Secure and Trusted Machine Learning</a>.</li>
+                <li>Developed a taxonomy of visual privacy risks grounded in legal frameworks.</li>
+                <li>Evaluated VLMs on privacy recognition and compositional reasoning.</li>
+                <li>Designing deployable VLM-as-a-judge models for privacy severity assessment, along with a dataset of compositional privacy risks.</li>
+                <li>Building a privacy advisory agent to detect, localize, and sanitize sensitive visual content for regulatory compliance.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Vision Language Models</span>
+                <span class="tag">Benchmarking</span>
+                <span class="tag">Reasoning</span>
+                <span class="tag">Agentic AI</span>
+            </div>
+        </article>
 
-        <ul class="project-bullets">
-          <li> Received a gift award from the  <a href="https://trustedai.usc.edu/">USC-Amazon Center on Secure and Trusted Machine Learning</a>.
-          <li>  Developed a taxonomy of visual privacy risks grounded in legal frameworks.
-          <li>  Evaluated VLMs on privacy recognition and compositional reasoning.
-          <li>  Designing deployable VLM-as-a-judge models for privacy severity assessment, along with a dataset of compositional privacy risks.
-          <li>  Building a privacy advisory agent to detect, localize, and sanitize sensitive visual content for regulatory compliance.
-        </ul>
+        <article class="project-card">
+            <h2 class="project-title">Horizon Europe - PILLAR-Robots: Purposeful Intrinsically motivated Lifelong Learning Autonomous Robots</h2>
+            <div class="project-meta">
+                <span><i class="fa-regular fa-calendar"></i>Jan 2024 – Jul 2024</span>
+                <span><i class="fa-solid fa-building-columns"></i>Athena RC · UDCoruna · CNR · Sorbonne · AI2Life · PAL Robotics</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Developed robotic simulation pipelines.</li>
+                <li>Enabled the robot to learn useful environmental information under minimal interaction during the exploration phase.</li>
+                <li>Investigated domain adaptation techniques to transfer learned behaviors from simulation to real-world robotic settings.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Vision Language Models</span>
+                <span class="tag">Robotics</span>
+                <span class="tag">Lifelong Learning</span>
+            </div>
+        </article>
 
-        <div class="tags">
-          <span class="tag">Vision Language Models</span>
-          <span class="tag">Benchmarking</span>
-          <span class="tag">Reasoning</span>
-          <span class="tag">Agentic AI</span>
-        </div>
-      </article>
+        <article class="project-card">
+            <h2 class="project-title">Enhancing Vision-Language Pre-training</h2>
+            <div class="project-meta">
+                <span><i class="fa-regular fa-calendar"></i>Nov 2022 – Jul 2022</span>
+                <span><i class="fa-solid fa-building-columns"></i>NTUA · UT Austin</span>
+            </div>
+            <ul class="project-bullets">
+                <li>Proposed a multimodal extension of contrastive vision–language models by incorporating dialogue as an additional modality.</li>
+                <li>Generated synthetic dialogue data to augment image–text datasets with richer contextual descriptions.</li>
+                <li>Developed a domain adaptation method to adapt models to dialogue inputs via a dual contrastive objective while preserving generalization.</li>
+            </ul>
+            <div class="tags">
+                <span class="tag">Vision Language Models</span>
+                <span class="tag">Self-supervised Learning</span>
+                <span class="tag">Domain Adaptation</span>
+                <span class="tag">Synthetic Data</span>
+            </div>
+        </article>
+    </main>
 
-      <article class="project-card">
-        <div class="project-title">Horizon Europe - PILLAR-Robots: Purposeful Intrinsically motivated Lifelong Learning Autonomous Robots</div>
-
-        <div class="project-meta">
-          <span><i class="fa-regular fa-calendar"></i> Jan 2024 – Jul 2024</span>
-          <span class="dot"></span>
-          <span><i class="fa-sharp fa-solid fa-graduation-cap"></i> Athena RC · UDCoruna · CNR · Sorbonne · AI2Life · PAL Robotics </span>
-        </div>
-
-        <ul class="project-bullets">
-          <li> Developed robotic simulation pipelines
-          <li> Enabled the robot to learn useful environmental information under minimal interaction during the exploration phase.
-          <li> Investigated domain adaptation techniques to transfer learned behaviors from simulation to real-world robotic settings.
-        </ul>
-
-        <div class="tags">
-          <span class="tag">Vision Language Models</span>
-          <span class="tag">Robotics</span>
-          <span class="tag">Lifelong Learning</span>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-title">Enhancing Vision-Language Pre-training</div>
-
-        <div class="project-meta">
-          <span><i class="fa-regular fa-calendar"></i> Nov 2022 – Jul 2022</span>
-          <span class="dot"></span>
-          <span><i class="fa-sharp fa-solid fa-graduation-cap"></i> NTUA · UT Austin </span>
-        </div>
-
-        <ul class="project-bullets">
-          <li> Proposed a multimodal extension of contrastive vision–language models by incorporating dialogue as an additional modality.
-          <li> Generated synthetic dialogue data to augment image–text datasets with richer contextual descriptions.
-          <li> Developed a domain adaptation method to adapt models to dialogue inputs via a dual contrastive objective while preserving generalization.
-        </ul>
-
-        <div class="tags">
-          <span class="tag">Vision Language Models</span>
-          <span class="tag">Self-supervised Learning</span>
-          <span class="tag">Domain Adaptation</span>
-          <span class="tag">Synthetic Data</span>
-        </div>
-      </article>
-
-    </section>
-  </main>
+    <footer>
+        <p>&copy; 2026 Efthymios Tsaprazlis. All rights reserved.</p>
+    </footer>
 </body>
 </html>

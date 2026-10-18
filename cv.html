@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculum Vitae — Efthymios (Themis) Tsaprazlis">
+    <title>Curriculum Vitae | Efthymios (Themis) Tsaprazlis</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+
+    <style>
+        /* Colors: same tokens as index.html */
+        :root {
+            --cardinal: #990000;
+            --cardinal-dark: #660000;
+            --gold: #CC9900;
+            --gold-bright: #FFCC00;
+
+            --bg: #1a1a1a;
+            --surface: #242424;
+            --surface-2: #2e2e2e;
+            --border: #3a3a3a;
+            --text: #ececec;
+            --text-muted: #a8a8a8;
+            --heading: #CC9900;
+            --link: #e0b23a;
+            --nav-bg: rgba(102, 0, 0, 0.92);
+            --nav-text: #f4f4f4;
+            --tag-bg: rgba(204, 153, 0, 0.12);
+            --tag-border: rgba(204, 153, 0, 0.45);
+            --tag-text: #f0c75a;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #fafafa;
+                --surface: #ffffff;
+                --surface-2: #f3f1ec;
+                --border: #e4e0d8;
+                --text: #1f1f1f;
+                --text-muted: #5c5c5c;
+                --heading: #660000;
+                --link: #990000;
+                --nav-bg: rgba(102, 0, 0, 0.95);
+                --nav-text: #f4f4f4;
+                --tag-bg: rgba(102, 0, 0, 0.06);
+                --tag-border: rgba(102, 0, 0, 0.2);
+                --tag-text: #660000;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 1.02rem;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 1.4rem;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: var(--nav-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold-bright);
+            text-decoration: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, rgba(102, 0, 0, 0.95), rgba(204, 153, 0, 0.9));
+            color: white;
+        }
+
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem;
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-top: 0.3rem;
+        }
+
+        /* Main content */
+        main {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
+
+        /* Project cards */
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.3rem 1.5rem;
+            margin-bottom: 1.2rem;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .project-card:hover {
+            border-left-color: var(--cardinal);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--heading);
+            margin-bottom: 0.4rem;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 1.2rem;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-meta i {
+            margin-right: 0.35rem;
+        }
+
+        .project-bullets {
+            padding-left: 1.2rem;
+        }
+
+        .project-bullets li {
+            margin: 0.35rem 0;
+        }
+
+        .project-bullets li::marker {
+            color: var(--gold);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tag {
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            color: var(--tag-text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--cardinal-dark);
+            color: #f4f4f4;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 720px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 0.4rem;
+                padding: 0.7rem 1rem;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 0.2rem 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .header-inner {
+                text-align: center;
+                padding: 1.8rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem 2rem;
+            }
+
+            .project-card {
+                padding: 1.1rem 1.1rem;
+            }
+        }
+
+        /* Sections and entries */
+        section + section {
+            margin-top: 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            opacity: 0.6;
+        }
+
+        .entry-role {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .entry-text {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 720px) {
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Awards and talks */
+        .item-list {
+            list-style: none;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.3rem 1.3rem;
+        }
+
+        .item-list li {
+            display: grid;
+            grid-template-columns: 6.5rem 1fr;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .item-list li:last-child {
+            border-bottom: none;
+        }
+
+        .item-list .date {
+            font-weight: 600;
+            color: var(--heading);
+            white-space: nowrap;
+        }
+
+        .item-title {
+            font-weight: 600;
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        header .subtitle a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 720px) {
+            .item-list li {
+                grid-template-columns: 1fr;
+                gap: 0.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="index.html">Themis Tsaprazlis</a>
+            <div class="nav-links">
+                <a href="index.html#about">About Me</a>
+                <a href="cv.html" class="active">CV</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-inner">
+            <h1>Curriculum Vitae</h1>
+            <p class="subtitle"><a href="data/TsaprazlisEfthymios_2026.pdf" target="_blank">Download PDF</a></p>
+        </div>
+    </header>
+
+    <main>
+        <section id="education">
+            <h2>Education</h2>
+
+            <article class="project-card">
+                <h3 class="project-title">University of Southern California</h3>
+                <p class="entry-role">PhD in Computer Science</p>
+                <div class="project-meta">
+                    <span><i class="fa-regular fa-calendar"></i>Aug 2024 – Aug 2029 (expected)</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Los Angeles, CA, USA</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Advised by Prof. <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a> at the <a href="https://sail.usc.edu/">Signal Analysis and Interpretation Lab (SAIL)</a>.</li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <h3 class="project-title">National Technical University of Athens</h3>
+                <p class="entry-role">BSc and MEng in Electrical and Computer Engineering</p>
+                <div class="project-meta">
+                    <span><i class="fa-regular fa-calendar"></i>Sep 2018 – Jul 2024</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Athens, Greece</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Thesis: <em>Enhancing contrastive language-vision pre-training with generative dialogue</em>, supervised by Prof. <a href="http://cvsp.cs.ntua.gr/maragos/">Petros Maragos</a>.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="research-experience">
+            <h2>Research Experience</h2>
+
+            <article class="project-card">
+                <h3 class="project-title">Signal Analysis and Interpretation Lab, USC</h3>
+                <p class="entry-role">Graduate Research Assistant</p>
+                <div class="project-meta">
+                    <span><i class="fa-regular fa-calendar"></i>Aug 2024 – Present</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Los Angeles, CA, USA</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Research on <em>Visual Reasoning</em> and <em>Multimodal Privacy Preserving Machine Learning</em>.</li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <h3 class="project-title">University of Texas at Austin</h3>
+                <p class="entry-role">Research Student</p>
+                <div class="project-meta">
+                    <span><i class="fa-regular fa-calendar"></i>Nov 2022 – Aug 2024</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Austin, TX, USA</span>
+                </div>
+                <p class="entry-text">Performed research on contrastive learning for vision-language pretraining advised by Prof. <a href="https://users.ece.utexas.edu/~dimakis/">Alex Dimakis</a>.</p>
+                <ul class="project-bullets">
+                    <li>Adapted CLIP with synthetic Q&amp;A augmentation and distribution-level objectives, achieving +6% accuracy gains and improving multimodal alignment and transferability.</li>
+                    <li>Extended CLIP with a BLIP-2–trained synthetic dialogue tower, using contrastive fusion to improve zero-shot retrieval while preserving its pretrained capabilities. (<a href="https://sslneurips23.github.io/paper_pdfs/paper_55.pdf">SSL@NeurIPS 2023</a>)</li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <h3 class="project-title">Computer Vision and Signal Processing Group, NTUA &amp; Robot Perception and Interaction Unit, Athena RC</h3>
+                <p class="entry-role">Research Assistant</p>
+                <div class="project-meta">
+                    <span><i class="fa-regular fa-calendar"></i>Jan 2024 – Jul 2024</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Athens, Greece</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Built a training-free perception system for open-ended robotic exploration, enabling incremental scene understanding without predefined categories. (<a href="https://robotics.ntua.gr/wp-content/uploads/sites/2/2025_Filntisis_Open-endedRoboticExplorationUsingVision-InspiredSimilarity-Foundation-Models_ICRA.pdf">ICRA 2025</a>)</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="professional-experience">
+            <h2>Professional Experience</h2>
+
+            <article class="project-card">
+                <h3 class="project-title">Workable Software</h3>
+                <p class="entry-role">Machine Learning Engineer Intern</p>
+                <div class="project-meta">
+                    <span><i class="fa-regular fa-calendar"></i>Oct 2023 – Dec 2023</span>
+                    <span><i class="fa-solid fa-location-dot"></i>Athens, Greece</span>
+                </div>
+                <p class="entry-text">Collaborated with product engineers to integrate CV parsing into production, introducing segmentation strategies that boosted accuracy and improved automated hiring reliability.</p>
+            </article>
+        </section>
+
+        <section id="awards">
+            <h2>Awards</h2>
+
+            <ul class="item-list">
+                <li>
+                    <span class="date">2025</span>
+                    <div>
+                        <p class="item-title">Gerondelis Foundation Scholarship</p>
+                        <p class="item-desc">PhD scholarship for Greek students pursuing graduate studies in the U.S.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="date">2025</span>
+                    <div>
+                        <p class="item-title">USC–Amazon Center on Secure and Trusted Machine Learning Gift Award</p>
+                        <p class="item-desc">Competitive seed grant supporting research on privacy-preserving and trustworthy AI.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="date">2025</span>
+                    <div>
+                        <p class="item-title">Thomaides Award for Scientific Publications</p>
+                        <p class="item-desc">Recognized for outstanding research publications in 2023 during undergraduate studies.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="date">2021</span>
+                    <div>
+                        <p class="item-title">ARISE Stipend Award</p>
+                        <p class="item-desc">Full tuition coverage for participation in the EIT Digital Summer School 2021.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="talks">
+            <h2>Talks</h2>
+
+            <ul class="item-list">
+                <li>
+                    <span class="date">Jun 2026</span>
+                    <div>
+                        <p class="item-title">8th Workshop on Safe Artificial Intelligence for All Domains @ CVPR 2026</p>
+                        <p class="item-desc"><em>Assessing Visual Privacy Risks in Multimodal AI (Oral)</em> · Denver, CO</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="date">May 2025</span>
+                    <div>
+                        <p class="item-title">4th Annual Symposium of USC-Amazon Center</p>
+                        <p class="item-desc"><em>Assessing Visual Privacy with VLMs</em> · Los Angeles, CA</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Efthymios Tsaprazlis. All rights reserved.</p>
+    </footer>
+</body>
+</html>
