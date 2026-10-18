@@ -434,6 +434,54 @@
                 gap: 0.1rem;
             }
         }
+
+        /* Institution logos */
+        .project-card.has-logo {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            column-gap: 1.2rem;
+            align-items: start;
+        }
+
+        .project-card.has-logo > :not(.entry-logo, .entry-logos) {
+            grid-column: 2;
+        }
+
+        .entry-logo,
+        .entry-logos {
+            grid-column: 1;
+            grid-row: 1 / span 6;
+        }
+
+        .entry-logos {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .entry-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            padding: 6px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        @media (max-width: 720px) {
+            .project-card.has-logo {
+                grid-template-columns: 48px 1fr;
+                column-gap: 0.9rem;
+            }
+
+            .entry-logo {
+                width: 48px;
+                height: 48px;
+                padding: 4px;
+                border-radius: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -462,7 +510,8 @@
         <section id="education">
             <h2>Education</h2>
 
-            <article class="project-card">
+            <article class="project-card has-logo">
+                <img class="entry-logo" src="images/logos/usc.png" alt="USC logo">
                 <h3 class="project-title">University of Southern California</h3>
                 <p class="entry-role">PhD in Computer Science</p>
                 <div class="project-meta">
@@ -474,7 +523,8 @@
                 </ul>
             </article>
 
-            <article class="project-card">
+            <article class="project-card has-logo">
+                <img class="entry-logo" src="images/logos/ntua.png" alt="NTUA logo">
                 <h3 class="project-title">National Technical University of Athens</h3>
                 <p class="entry-role">BSc and MEng in Electrical and Computer Engineering</p>
                 <div class="project-meta">
@@ -490,7 +540,8 @@
         <section id="research-experience">
             <h2>Research Experience</h2>
 
-            <article class="project-card">
+            <article class="project-card has-logo">
+                <img class="entry-logo" src="images/logos/usc.png" alt="USC logo">
                 <h3 class="project-title">Signal Analysis and Interpretation Lab, USC</h3>
                 <p class="entry-role">Graduate Research Assistant</p>
                 <div class="project-meta">
@@ -502,7 +553,8 @@
                 </ul>
             </article>
 
-            <article class="project-card">
+            <article class="project-card has-logo">
+                <img class="entry-logo" src="images/logos/utaustin.png" alt="UT Austin logo">
                 <h3 class="project-title">University of Texas at Austin</h3>
                 <p class="entry-role">Research Student</p>
                 <div class="project-meta">
@@ -516,7 +568,11 @@
                 </ul>
             </article>
 
-            <article class="project-card">
+            <article class="project-card has-logo">
+                <div class="entry-logos">
+                    <img class="entry-logo" src="images/logos/athena.png" alt="Athena RC logo">
+                    <img class="entry-logo" src="images/logos/ntua.png" alt="NTUA logo">
+                </div>
                 <h3 class="project-title">Computer Vision and Signal Processing Group, NTUA &amp; Robot Perception and Interaction Unit, Athena RC</h3>
                 <p class="entry-role">Research Assistant</p>
                 <div class="project-meta">
@@ -532,7 +588,8 @@
         <section id="professional-experience">
             <h2>Professional Experience</h2>
 
-            <article class="project-card">
+            <article class="project-card has-logo">
+                <img class="entry-logo" src="images/logos/workable.png" alt="Workable logo">
                 <h3 class="project-title">Workable Software</h3>
                 <p class="entry-role">Machine Learning Engineer Intern</p>
                 <div class="project-meta">
