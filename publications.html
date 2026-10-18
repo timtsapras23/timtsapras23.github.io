@@ -417,6 +417,15 @@
             text-decoration: none;
         }
 
+        /* A link button without a URL yet */
+        a.pub-btn:not([href]) {
+            cursor: default;
+        }
+
+        a.pub-btn:not([href]):hover {
+            border-color: var(--border);
+        }
+
         .bibtex {
             position: relative;
             margin-top: 0.7rem;
@@ -468,7 +477,29 @@
     <main>
         <section id="preprints">
             <h2>Preprints</h2>
-            <p class="empty">No preprints at the moment.</p>
+            <div class="publication">
+                <p class="papertitle">SPARC: Spoken Profile Authorship Recognition Corpus</p>
+                <p class="authors">
+                    <strong>Efthymios Tsaprazlis</strong>,
+                    <a href="https://bowenyi-pierre.github.io/">Bowen Yi</a>,
+                    <a href="https://tiantiaf0627.github.io/">Tiantian Feng</a>,
+                    Junghwan Kim,
+                    <a href="https://jurgens.people.si.umich.edu/">David Jurgens</a>,
+                    <a href="https://sail.usc.edu/people/shri.html">Shrikanth Narayanan</a>
+                </p>
+                <p class="venue"><span class="badge">Preprint 2026</span>Under review, 2026</p>
+                <!-- TODO: add the arXiv link to Paper and fill in the BibTeX once it's out -->
+                <div class="pub-links">
+                    <a class="pub-btn"><i class="fa-regular fa-file-pdf"></i>Paper</a>
+                    <a class="pub-btn" href="https://github.com/bowenyi-pierre/SPARC" target="_blank"><i class="fa-brands fa-github"></i>Code</a>
+                    <a class="pub-btn" href="https://huggingface.co/datasets/timtsapras23/SPARC" target="_blank"><i class="fa-brands fa-hugging-face"></i>HF</a>
+                    <button class="pub-btn bib-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-quote-right"></i>BibTeX</button>
+                </div>
+                <div class="bibtex" hidden>
+                    <button class="pub-btn bib-copy" type="button">Copy</button>
+                    <pre></pre>
+                </div>
+            </div>
         </section>
 
         <section id="y2026">
