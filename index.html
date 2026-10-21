@@ -180,10 +180,20 @@
         }
 
         .nav-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             color: var(--nav-name);
             white-space: nowrap;
+        }
+
+        .nav-name img {
+            height: 26px;
+            width: auto;
+            /* Line the sign up with the letters, not the line box */
+            transform: translateY(-3px);
         }
 
         .nav-links {
@@ -567,7 +577,7 @@
 
     <nav>
         <div class="nav-inner">
-            <span class="nav-name">Themis Tsaprazlis</span>
+            <span class="nav-name"><img src="images/nav-icon.svg" width="41" height="26" alt="">Themis Tsaprazlis</span>
             <div class="nav-links">
                 <a href="#about">About Me</a>
                 <a href="cv.html">CV</a>
